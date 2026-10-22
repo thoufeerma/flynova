@@ -17,7 +17,7 @@ const PACKAGES = [
     days: "5 Days",
     nights: "4 Nights",
     stay: "Hotel + Chauffeur",
-    image: "/images/temple-tour-hero.jpg",
+    image: "/images/pamban-bridge-rameshwaram.jpg",
     alt: "Madurai Meenakshi, Rameshwaram, Kanyakumari and Trivandrum Temple Tour",
     href: "/package/bsi-18",
     badge: "BESTSELLER · BSI-18",

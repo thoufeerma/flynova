@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import DestinationsSection from "@/components/DestinationsSection";
 import KeralaMapSection from "@/components/KeralaMap3D/KeralaMapSection";
-import PackagesExplorerSection from "@/components/PackagesExplorerSection";
+import FeaturedJourneysSection from "@/components/FeaturedJourneysSection";
 import WhyFlynova from "@/components/WhyFlynova";
 import ServicesSection from "@/components/ServicesSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
@@ -51,7 +51,7 @@ export default function HomePage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#07090b] text-white flex flex-col relative selection:bg-[#dcb037] selection:text-black">
+    <main className="min-h-screen bg-dark-deep text-white flex flex-col relative selection:bg-gold-base selection:text-black">
       {/* 1. Header / Navbar matching mockup */}
       <Header
         onOpenPlanModal={() => handleOpenPlanModal()}
@@ -72,9 +72,8 @@ export default function HomePage() {
       {/* 4. 3D Interactive Kerala Map Section: 3D EXPERIENCE Explore Kerala */}
       <KeralaMapSection onOpenPlanModal={handleOpenPlanModal} />
 
-      {/* 5. Packages Explorer: Divine Temple & Heritage Tours (Shows max 6 packages + Show More CTA) */}
-      <PackagesExplorerSection
-        limit={6}
+      {/* 5. Featured Sacred Journeys Across South India (Matches reference mockup) */}
+      <FeaturedJourneysSection
         onSelectPackage={(pkgName) => handleOpenPlanModal(pkgName)}
       />
 

@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Manrope } from "next/font/google";
 import "./globals.css";
 import LoadingScreen from "@/components/LoadingScreen";
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+  display: "swap",
+});
 
 const playfair = localFont({
   src: [
@@ -76,7 +83,12 @@ export const metadata: Metadata = {
     type: "website",
   },
   icons: {
-    icon: "/images/logo-clean.png",
+    icon: [
+      { url: "/images/logo%20fav%20icon.png", type: "image/png" },
+      { url: "/favicon.ico" },
+    ],
+    shortcut: "/images/logo%20fav%20icon.png",
+    apple: "/images/logo%20fav%20icon.png",
   },
 };
 
@@ -88,15 +100,24 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        <link rel="icon" href="/images/logo%20fav%20icon.png" type="image/png" />
+        <link rel="shortcut icon" href="/images/logo%20fav%20icon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/images/logo%20fav%20icon.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
           rel="stylesheet"
         />
+        {/* Instant Hero Image Preloads to eliminate black screens */}
+        <link rel="preload" as="image" href="/images/hero-india.jpg" />
+        <link rel="preload" as="image" href="/images/hero-kerala.jpg" />
+        <link rel="preload" as="image" href="/images/hero-kashmir.jpg" />
+        <link rel="preload" as="image" href="/images/hero-lakshadweep.jpg" />
+        <link rel="preload" as="image" href="/images/hero-goa.jpg" />
       </head>
       <body
-        className={`${playfair.variable} ${satoshi.variable} font-serif antialiased bg-[#080a0c] text-[#181d21] min-h-screen selection:bg-[#c59b27] selection:text-black`}
+        className={`${playfair.variable} ${satoshi.variable} ${manrope.variable} font-sans antialiased bg-dark-deep text-white min-h-screen selection:bg-gold-base selection:text-black`}
       >
         <LoadingScreen />
         {children}

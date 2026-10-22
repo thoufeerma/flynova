@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Menu, X } from "lucide-react";
+import { SITE_CONFIG } from "@/data/siteConfig";
 
 interface HeaderProps {
   onOpenPlanModal: () => void;
@@ -32,7 +33,7 @@ export default function Header({ onOpenPlanModal, onSearchClick }: HeaderProps) 
     { label: "About", href: "/#about" },
     { label: "Destinations", href: "/#destinations" },
     { label: "Packages", href: "/packages" },
-    { label: "Kerala 3D", href: "/#kerala-3d" },
+    { label: "Kerala", href: "/#kerala-3d" },
     { label: "Reviews", href: "/#reviews" },
     { label: "Gallery", href: "/#gallery" },
   ];
@@ -41,7 +42,7 @@ export default function Header({ onOpenPlanModal, onSearchClick }: HeaderProps) 
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#080a0d]/90 backdrop-blur-md border-b border-white/10 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.7)]"
+          ? "bg-dark-deep/90 backdrop-blur-md border-b border-white/10 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.7)]"
           : "bg-gradient-to-b from-black/80 via-black/40 to-transparent py-5"
       }`}
     >
@@ -66,7 +67,7 @@ export default function Header({ onOpenPlanModal, onSearchClick }: HeaderProps) 
             <Link
               key={link.label}
               href={link.href}
-              className="font-serif text-[15px] sm:text-base font-normal tracking-wider text-white/90 hover:text-white transition-colors py-1 inline-flex items-center gap-2 group"
+              className="font-serif font-playfair text-[15px] sm:text-base font-normal tracking-wide text-[#f7f5f0]/95 hover:text-[#f3cb6b] transition-colors py-1 inline-flex items-center gap-2 group"
             >
               <span>{link.label}</span>
               {link.badge && (
@@ -83,16 +84,16 @@ export default function Header({ onOpenPlanModal, onSearchClick }: HeaderProps) 
           <button
             type="button"
             onClick={onOpenPlanModal}
-            className="hidden sm:inline-flex bg-[#c59b27] hover:bg-[#dcb037] text-black font-bold text-xs tracking-wider uppercase px-4 py-2.5 rounded-full transition-all shadow-[0_4px_15px_rgba(197,155,39,0.3)] hover:shadow-[0_6px_20px_rgba(197,155,39,0.5)] items-center gap-1.5 cursor-pointer"
+            className="hidden sm:inline-flex bg-[#c59b27] hover:bg-[#dcb037] text-black font-serif font-playfair font-semibold text-xs tracking-[0.12em] uppercase px-5 py-2.5 rounded-full transition-all duration-300 shadow-[0_4px_18px_rgba(197,155,39,0.35)] hover:shadow-[0_6px_22px_rgba(197,155,39,0.55)] items-center gap-2 cursor-pointer hover:scale-105 active:scale-95"
           >
             <span>Plan Your Trip</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
           </button>
 
           <button
             type="button"
             onClick={() => setMobileMenuOpen(true)}
-            className="lg:hidden p-2 text-white hover:text-[#c59b27] transition-colors cursor-pointer"
+            className="lg:hidden p-2 text-white hover:text-gold-base transition-colors cursor-pointer"
             aria-label="Open navigation menu"
           >
             <Menu className="w-6 h-6" />
@@ -111,7 +112,7 @@ export default function Header({ onOpenPlanModal, onSearchClick }: HeaderProps) 
           className="absolute inset-0 bg-black/80 backdrop-blur-sm"
           onClick={() => setMobileMenuOpen(false)}
         />
-        <div className="absolute right-0 top-0 bottom-0 w-full max-w-xs bg-[#0b0f13] border-l border-white/10 p-6 flex flex-col justify-between">
+        <div className="absolute right-0 top-0 bottom-0 w-full max-w-xs bg-dark-surface border-l border-white/10 p-6 flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-8 pb-4 border-b border-white/10">
               <div className="relative h-9 w-36">
@@ -137,11 +138,11 @@ export default function Header({ onOpenPlanModal, onSearchClick }: HeaderProps) 
                   key={link.label}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-base font-medium text-white/90 hover:text-[#dcb037] transition-colors py-1 flex items-center justify-between"
+                  className="font-serif font-playfair text-lg font-normal text-white/90 hover:text-[#f3cb6b] transition-colors py-1 flex items-center justify-between"
                 >
                   <span>{link.label}</span>
                   {link.badge && (
-                    <span className="bg-[#c59b27] text-black text-[10px] font-sans font-extrabold px-2 py-0.5 rounded-full uppercase">
+                    <span className="bg-gold-base text-black text-[10px] font-sans font-bold px-2 py-0.5 rounded-full uppercase">
                       {link.badge}
                     </span>
                   )}
@@ -157,13 +158,13 @@ export default function Header({ onOpenPlanModal, onSearchClick }: HeaderProps) 
                 setMobileMenuOpen(false);
                 onOpenPlanModal();
               }}
-              className="w-full bg-[#dcb037] hover:bg-[#eec149] text-black font-semibold text-sm py-3 rounded-lg flex items-center justify-center gap-2 shadow-lg"
+              className="w-full bg-[#c59b27] hover:bg-[#dcb037] text-black font-serif font-playfair font-semibold text-xs tracking-[0.12em] uppercase py-3 rounded-full flex items-center justify-center gap-2 transition-all shadow-md cursor-pointer"
             >
               <span>Plan Your Trip</span>
               <ArrowRight className="w-4 h-4" />
             </button>
             <div className="text-xs text-white/50 text-center font-mono">
-              +91 7306003152
+              {SITE_CONFIG.phoneDisplay}
             </div>
           </div>
         </div>

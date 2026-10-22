@@ -73,23 +73,23 @@ export default function LoadingScreen({ minDuration = 1400 }: LoadingScreenProps
     <div
       role="status"
       aria-label="Loading Flynova Reisen"
-      className={`fixed inset-0 z-[99999] bg-[#05070a] flex flex-col items-center justify-center select-none overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+      className={`fixed inset-0 z-[99999] bg-dark-deep flex flex-col items-center justify-center select-none overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
         isExiting
-          ? "opacity-0 scale-105 pointer-events-none filter blur-xs"
+          ? "opacity-0 scale-105 pointer-events-none filter blur-sm"
           : "opacity-100 scale-100"
       }`}
     >
       {/* Background ambient gold aura */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[520px] h-[520px] bg-[radial-gradient(circle,rgba(220,176,55,0.12)_0%,rgba(197,155,39,0.04)_45%,transparent_70%)] rounded-full animate-pulse-gold" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,#05070a_95%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,var(--color-dark-deep)_95%)]" />
       </div>
 
       {/* Decorative hairline corner borders */}
-      <div className="absolute top-6 left-6 w-8 h-8 border-t border-l border-[#dcb037]/30 pointer-events-none" />
-      <div className="absolute top-6 right-6 w-8 h-8 border-t border-r border-[#dcb037]/30 pointer-events-none" />
-      <div className="absolute bottom-6 left-6 w-8 h-8 border-b border-l border-[#dcb037]/30 pointer-events-none" />
-      <div className="absolute bottom-6 right-6 w-8 h-8 border-b border-r border-[#dcb037]/30 pointer-events-none" />
+      <div className="absolute top-6 left-6 w-8 h-8 border-t border-l border-gold-base/30 pointer-events-none" />
+      <div className="absolute top-6 right-6 w-8 h-8 border-t border-r border-gold-base/30 pointer-events-none" />
+      <div className="absolute bottom-6 left-6 w-8 h-8 border-b border-l border-gold-base/30 pointer-events-none" />
+      <div className="absolute bottom-6 right-6 w-8 h-8 border-b border-r border-gold-base/30 pointer-events-none" />
 
       {/* Skip button for quick bypass */}
       <button
@@ -107,22 +107,22 @@ export default function LoadingScreen({ minDuration = 1400 }: LoadingScreenProps
         <div className="relative w-32 h-32 sm:w-36 sm:h-36 mb-8 flex items-center justify-center">
           
           {/* Outer slow-spinning compass ring */}
-          <div className="absolute inset-0 rounded-full border border-dashed border-[#dcb037]/25 animate-[spin_18s_linear_infinite]" />
+          <div className="absolute inset-0 rounded-full border border-dashed border-gold-base/25 animate-[spin_18s_linear_infinite]" />
           
           {/* Inner reverse-spinning golden ring with indicator notches */}
-          <div className="absolute inset-2 rounded-full border border-[#dcb037]/40 border-t-transparent border-b-transparent animate-[spin_10s_linear_infinite_reverse]" />
+          <div className="absolute inset-2 rounded-full border border-gold-base/40 border-t-transparent border-b-transparent animate-[spin_10s_linear_infinite_reverse]" />
           
           {/* Glowing central pulse disc */}
-          <div className="absolute inset-5 rounded-full bg-gradient-to-tr from-[#c59b27]/20 via-[#dcb037]/10 to-transparent backdrop-blur-xs animate-pulse" />
+          <div className="absolute inset-5 rounded-full bg-gradient-to-tr from-gold-base/20 via-gold-light/10 to-transparent backdrop-blur-sm animate-pulse" />
 
           {/* Golden cardinal points */}
-          <span className="absolute -top-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-[#dcb037] rounded-full shadow-[0_0_8px_#dcb037]" />
-          <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-[#dcb037] rounded-full shadow-[0_0_8px_#dcb037]" />
-          <span className="absolute top-1/2 -left-1 -translate-y-1/2 w-1.5 h-1.5 bg-[#dcb037] rounded-full shadow-[0_0_8px_#dcb037]" />
-          <span className="absolute top-1/2 -right-1 -translate-y-1/2 w-1.5 h-1.5 bg-[#dcb037] rounded-full shadow-[0_0_8px_#dcb037]" />
+          <span className="absolute -top-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-gold-base rounded-full shadow-[0_0_8px_var(--color-gold-base)]" />
+          <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-gold-base rounded-full shadow-[0_0_8px_var(--color-gold-base)]" />
+          <span className="absolute top-1/2 -left-1 -translate-y-1/2 w-1.5 h-1.5 bg-gold-base rounded-full shadow-[0_0_8px_var(--color-gold-base)]" />
+          <span className="absolute top-1/2 -right-1 -translate-y-1/2 w-1.5 h-1.5 bg-gold-base rounded-full shadow-[0_0_8px_var(--color-gold-base)]" />
 
           {/* Crisp Centered Flynova Logo */}
-          <div className="relative w-20 h-10 sm:w-24 sm:h-12 z-10 drop-shadow-[0_2px_16px_rgba(220,176,55,0.45)]">
+          <div className="relative w-20 h-10 sm:w-24 sm:h-12 z-10 drop-shadow-[0_2px_16px_rgba(197,155,39,0.45)]">
             <Image
               src="/images/logo-clean.png"
               alt="Flynova Reisen"
@@ -134,12 +134,12 @@ export default function LoadingScreen({ minDuration = 1400 }: LoadingScreenProps
         </div>
 
         {/* Brand Name in Playfair Display */}
-        <h2 className="font-serif text-2xl sm:text-3xl text-[#f7f5f0] tracking-[0.28em] uppercase font-normal mb-1.5 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+        <h2 className="font-serif text-2xl sm:text-3xl text-white tracking-[0.28em] uppercase font-normal mb-1.5 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
           Flynova Reisen
         </h2>
 
         {/* Subtitle / Location */}
-        <p className="font-serif italic text-xs sm:text-sm text-[#dcb037]/90 tracking-[0.2em] uppercase mb-8">
+        <p className="font-serif italic text-xs sm:text-sm text-gold-light tracking-[0.2em] uppercase mb-8">
           Incredible India · Bespoke Journeys
         </p>
 
@@ -147,14 +147,14 @@ export default function LoadingScreen({ minDuration = 1400 }: LoadingScreenProps
         <div className="w-56 sm:w-64 flex flex-col items-center gap-3">
           <div className="w-full h-[2px] bg-white/10 rounded-full overflow-hidden relative">
             <div
-              className="h-full bg-gradient-to-r from-[#c59b27] via-[#f7d87c] to-[#c59b27] transition-all duration-150 ease-out shadow-[0_0_12px_rgba(220,176,55,0.8)]"
+              className="h-full bg-gradient-to-r from-gold-dark via-gold-light to-gold-dark transition-all duration-150 ease-out shadow-[0_0_12px_rgba(220,176,55,0.8)]"
               style={{ width: `${progress}%` }}
             />
           </div>
 
           {/* Progress Percent & Dynamic Status */}
           <div className="w-full flex items-center justify-between text-[11px] font-sans tracking-widest text-white/50">
-            <span className="text-[#dcb037] font-mono font-medium">
+            <span className="text-gold-base font-mono font-medium">
               {progress.toString().padStart(2, "0")}%
             </span>
             <span className="text-white/40 uppercase tracking-widest text-[9px]">

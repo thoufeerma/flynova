@@ -2,6 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import { X, Send, Sparkles } from "lucide-react";
+import { SITE_CONFIG } from "@/data/siteConfig";
+import PrimaryButton from "@/components/ui/PrimaryButton";
+import SectionEyebrow from "@/components/ui/SectionEyebrow";
 
 interface TripModalProps {
   isOpen: boolean;
@@ -35,7 +38,7 @@ export default function TripModal({ isOpen, onClose, prefill }: TripModalProps) 
     e.preventDefault();
 
     const waText = 
-`*NEW TRIP ENQUIRY — FLYNOVA REISEN LLP*
+`*NEW TRIP ENQUIRY — ${SITE_CONFIG.companyName.toUpperCase()}*
 ----------------------------------------
 *Guest Name:* ${name || "Guest"}
 *Phone / WhatsApp:* ${phone}
@@ -45,10 +48,10 @@ export default function TripModal({ isOpen, onClose, prefill }: TripModalProps) 
 *Travel Dates:* ${dates || "Upcoming Season"}
 *Special Requests:* ${notes || "None"}
 ----------------------------------------
-_Inquiry submitted via Flynova Reisen official website for Anitha K A._`;
+_Inquiry submitted via ${SITE_CONFIG.companyName} official website for ${SITE_CONFIG.leadContact}._`;
 
     const encoded = encodeURIComponent(waText);
-    const waUrl = `https://wa.me/917306003152?text=${encoded}`;
+    const waUrl = `https://wa.me/${SITE_CONFIG.phoneRaw}?text=${encoded}`;
 
     window.open(waUrl, "_blank");
     setSubmitted(true);
@@ -67,12 +70,12 @@ _Inquiry submitted via Flynova Reisen official website for Anitha K A._`;
       />
 
       {/* Modal Card */}
-      <div className="relative z-10 w-full max-w-[620px] bg-[#0f1317] border border-[#c59b27]/40 rounded-lg p-6 sm:p-9 text-white shadow-[0_25px_60px_rgba(0,0,0,0.85)] max-h-[92vh] overflow-y-auto">
+      <div className="relative z-10 w-full max-w-[620px] bg-dark-surface border border-gold-base/40 rounded-2xl p-6 sm:p-9 text-white shadow-[0_25px_60px_rgba(0,0,0,0.85)] max-h-[92vh] overflow-y-auto">
         
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 text-white/60 hover:text-white transition-colors"
+          className="absolute top-5 right-5 text-white/60 hover:text-white transition-colors cursor-pointer"
           aria-label="Close modal"
         >
           <X className="w-6 h-6" />
@@ -80,26 +83,28 @@ _Inquiry submitted via Flynova Reisen official website for Anitha K A._`;
 
         {submitted ? (
           <div className="py-12 text-center space-y-4">
-            <div className="w-14 h-14 rounded-full bg-[#c59b27] text-black mx-auto flex items-center justify-center">
+            <div className="w-14 h-14 rounded-full bg-gold-base text-black mx-auto flex items-center justify-center">
               <Sparkles className="w-7 h-7" />
             </div>
-            <h3 className="font-serif text-2xl text-white">Connecting With Anitha K A</h3>
-            <p className="text-sm text-white/70 max-w-sm mx-auto">
-              Your inquiry has been formatted and opened on WhatsApp (+91 73060 03152). Our lead travel architect will get back to you shortly!
+            <h3 className="font-serif font-playfair text-2xl text-white font-normal">Connecting With {SITE_CONFIG.leadContact}</h3>
+            <p className="font-sans text-sm text-white/70 max-w-sm mx-auto">
+              Your inquiry has been formatted and opened on WhatsApp ({SITE_CONFIG.phone}). Our lead travel architect will get back to you shortly!
             </p>
           </div>
         ) : (
           <>
             <div className="mb-6">
-              <div className="flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] text-[#c59b27] uppercase mb-1">
-                <Sparkles className="w-3.5 h-3.5 text-[#c59b27]" />
-                <span>BESPOKE TRIP ARCHITECT</span>
+              <div className="flex items-center gap-2 mb-1">
+                <Sparkles className="w-3.5 h-3.5 text-gold-base" />
+                <SectionEyebrow as="span" className="mb-0">
+                  BESPOKE TRIP ARCHITECT
+                </SectionEyebrow>
               </div>
-              <h3 className="font-serif text-2xl sm:text-3xl text-white font-normal mb-1">
+              <h3 className="font-serif font-playfair text-2xl sm:text-3xl text-white font-normal mb-1">
                 Plan Your Tailored Journey
               </h3>
               <p className="text-xs sm:text-sm text-white/60 font-light">
-                Share your travel vision with Anitha & the Flynova team for an instant personalized itinerary & quote.
+                Share your travel vision with {SITE_CONFIG.leadContact} &amp; the Flynova team for an instant personalized itinerary &amp; quote.
               </p>
             </div>
 
@@ -113,19 +118,19 @@ _Inquiry submitted via Flynova Reisen official website for Anitha K A._`;
                     value={destination}
                     onChange={(e) => setDestination(e.target.value)}
                     required
-                    className="w-full bg-white/5 border border-white/15 rounded p-2.5 text-sm text-white focus:border-[#c59b27] outline-none"
+                    className="w-full bg-white/5 border border-white/15 rounded p-2.5 text-sm text-white focus:border-gold-base outline-none"
                   >
-                    <option value="" disabled className="bg-[#0f1317]">Select destination</option>
-                    <option value="Kerala & the backwaters" className="bg-[#0f1317]">Kerala (Alleppey, Munnar, Kovalam)</option>
-                    <option value="Sacred South Temple Tour (Madurai - Rameshwaram - Trivandrum)" className="bg-[#0f1317]">
+                    <option value="" disabled className="bg-dark-surface">Select destination</option>
+                    <option value="Kerala & the backwaters" className="bg-dark-surface">Kerala (Alleppey, Munnar, Kovalam)</option>
+                    <option value="Sacred South Temple Tour (Madurai - Rameshwaram - Trivandrum)" className="bg-dark-surface">
                       Sacred South Temple Tour (Madurai, Rameshwaram, Trivandrum)
                     </option>
-                    <option value="Goa & the coast" className="bg-[#0f1317]">Goa (Beaches & Resorts)</option>
-                    <option value="Kashmir & Manali" className="bg-[#0f1317]">Kashmir & Manali (Snow & Valleys)</option>
-                    <option value="Jaipur & Royal Rajasthan" className="bg-[#0f1317]">Royal Rajasthan (Jaipur, Udaipur)</option>
-                    <option value="Lakshadweep Archipelago" className="bg-[#0f1317]">Lakshadweep Coral Islands</option>
-                    <option value="Flight & Hotel Booking Only" className="bg-[#0f1317]">Flight & Hotel Booking Only</option>
-                    <option value="Other Custom Destination" className="bg-[#0f1317]">Other Custom Destination</option>
+                    <option value="Goa & the coast" className="bg-dark-surface">Goa (Beaches & Resorts)</option>
+                    <option value="Kashmir & Manali" className="bg-dark-surface">Kashmir & Manali (Snow & Valleys)</option>
+                    <option value="Jaipur & Royal Rajasthan" className="bg-dark-surface">Royal Rajasthan (Jaipur, Udaipur)</option>
+                    <option value="Lakshadweep Archipelago" className="bg-dark-surface">Lakshadweep Coral Islands</option>
+                    <option value="Flight & Hotel Booking Only" className="bg-dark-surface">Flight & Hotel Booking Only</option>
+                    <option value="Other Custom Destination" className="bg-dark-surface">Other Custom Destination</option>
                   </select>
                 </div>
 
@@ -136,13 +141,13 @@ _Inquiry submitted via Flynova Reisen official website for Anitha K A._`;
                   <select
                     value={tripType}
                     onChange={(e) => setTripType(e.target.value)}
-                    className="w-full bg-white/5 border border-white/15 rounded p-2.5 text-sm text-white focus:border-[#c59b27] outline-none"
+                    className="w-full bg-white/5 border border-white/15 rounded p-2.5 text-sm text-white focus:border-gold-base outline-none"
                   >
-                    <option value="Family Holiday" className="bg-[#0f1317]">Family Vacation</option>
-                    <option value="Sacred Pilgrimage / Temple Yatra" className="bg-[#0f1317]">Sacred Pilgrimage / Temple Yatra</option>
-                    <option value="Romantic Honeymoon" className="bg-[#0f1317]">Romantic Honeymoon</option>
-                    <option value="Group Pilgrimage / Senior Citizens" className="bg-[#0f1317]">Group Tour / Senior Citizens</option>
-                    <option value="Solo Leisure & Wellness" className="bg-[#0f1317]">Solo Leisure & Wellness</option>
+                    <option value="Family Holiday" className="bg-dark-surface">Family Vacation</option>
+                    <option value="Sacred Pilgrimage / Temple Yatra" className="bg-dark-surface">Sacred Pilgrimage / Temple Yatra</option>
+                    <option value="Romantic Honeymoon" className="bg-dark-surface">Romantic Honeymoon</option>
+                    <option value="Group Pilgrimage / Senior Citizens" className="bg-dark-surface">Group Tour / Senior Citizens</option>
+                    <option value="Solo Leisure & Wellness" className="bg-dark-surface">Solo Leisure & Wellness</option>
                   </select>
                 </div>
               </div>
@@ -158,7 +163,7 @@ _Inquiry submitted via Flynova Reisen official website for Anitha K A._`;
                     onChange={(e) => setTravellers(e.target.value)}
                     placeholder="e.g. 2 Adults, 1 Child"
                     required
-                    className="w-full bg-white/5 border border-white/15 rounded p-2.5 text-sm text-white focus:border-[#c59b27] outline-none"
+                    className="w-full bg-white/5 border border-white/15 rounded p-2.5 text-sm text-white focus:border-gold-base outline-none"
                   />
                 </div>
 
@@ -172,7 +177,7 @@ _Inquiry submitted via Flynova Reisen official website for Anitha K A._`;
                     onChange={(e) => setDates(e.target.value)}
                     placeholder="e.g. Next month, Nov 15-20"
                     required
-                    className="w-full bg-white/5 border border-white/15 rounded p-2.5 text-sm text-white focus:border-[#c59b27] outline-none"
+                    className="w-full bg-white/5 border border-white/15 rounded p-2.5 text-sm text-white focus:border-gold-base outline-none"
                   />
                 </div>
               </div>
@@ -188,7 +193,7 @@ _Inquiry submitted via Flynova Reisen official website for Anitha K A._`;
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Enter your name"
                     required
-                    className="w-full bg-white/5 border border-white/15 rounded p-2.5 text-sm text-white focus:border-[#c59b27] outline-none"
+                    className="w-full bg-white/5 border border-white/15 rounded p-2.5 text-sm text-white focus:border-gold-base outline-none"
                   />
                 </div>
 
@@ -202,7 +207,7 @@ _Inquiry submitted via Flynova Reisen official website for Anitha K A._`;
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="e.g. +91 9876543210"
                     required
-                    className="w-full bg-white/5 border border-white/15 rounded p-2.5 text-sm text-white focus:border-[#c59b27] outline-none"
+                    className="w-full bg-white/5 border border-white/15 rounded p-2.5 text-sm text-white focus:border-gold-base outline-none"
                   />
                 </div>
               </div>
@@ -216,17 +221,17 @@ _Inquiry submitted via Flynova Reisen official website for Anitha K A._`;
                   onChange={(e) => setNotes(e.target.value)}
                   rows={2}
                   placeholder="Diet preferences, senior citizen care, hotel category preference, flight assistance..."
-                  className="w-full bg-white/5 border border-white/15 rounded p-2.5 text-sm text-white focus:border-[#c59b27] outline-none resize-none"
+                  className="w-full bg-white/5 border border-white/15 rounded p-2.5 text-sm text-white focus:border-gold-base outline-none resize-none"
                 />
               </div>
 
-              <button
+              <PrimaryButton
                 type="submit"
-                className="w-full bg-[#c59b27] hover:bg-[#e5b94c] text-black font-semibold text-sm py-3.5 rounded flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(197,155,39,0.3)] transition-all cursor-pointer mt-2"
+                className="w-full py-3.5 mt-2"
+                icon={<Send className="w-4 h-4" />}
               >
-                <Send className="w-4 h-4" />
-                <span>Submit & Connect on WhatsApp →</span>
-              </button>
+                Submit &amp; Connect on WhatsApp →
+              </PrimaryButton>
             </form>
           </>
         )}

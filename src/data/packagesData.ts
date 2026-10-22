@@ -28,7 +28,7 @@ export interface PackageItem {
   accommodation: string;
   transport: string;
   isCustomizable: boolean;
-  category: "individual" | "group" | "senior" | "north" | "special";
+  category: "individual" | "group" | "senior" | "north" | "special" | "kerala" | "hillstation";
   itinerary: DayItinerary[];
   paxPricing?: {
     pax2?: number;
@@ -50,7 +50,7 @@ export const ALL_PACKAGES: PackageItem[] = [
     "days": 5,
     "price": 12999,
     "formattedPrice": "₹12,999",
-    "image": "/images/meenakshi-temple.jpg",
+    "image": "/images/pamban-bridge-rameshwaram.jpg",
     "description": "Sacred pilgrimage from Madurai through Rameshwaram & Kanyakumari to Kovalam & Trivandrum — covering Meenakshi Temple, Ramanathaswamy Temple, Vivekananda Rock & Padmanabhaswamy Temple.",
     "highlights": [
       "Meenakshi Amman Temple",
@@ -409,7 +409,7 @@ export const ALL_PACKAGES: PackageItem[] = [
     "days": 6,
     "price": 17000,
     "formattedPrice": "₹17,000",
-    "image": "/images/varanasi-kashi.jpg",
+    "image": "/images/ayodhya-ram-mandir.jpg",
     "description": "Sacred North India pilgrimage covering Kashi Vishwanath in Varanasi, Mahabodhi Temple in Bodhgaya, Triveni Sangam at Prayagraj & Shri Ram Janmabhoomi at Ayodhya — concluding with Naimisharanya & Lucknow departure.",
     "highlights": [
       "Kashi Vishwanath Temple",
@@ -588,7 +588,7 @@ export const ALL_PACKAGES: PackageItem[] = [
     "days": 5,
     "price": 11999,
     "formattedPrice": "₹11,999",
-    "image": "/images/kanyakumari-rock.jpg",
+    "image": "/images/coimbatore-adiyogi.jpg",
     "description": "Grand temple tour from Coimbatore covering Isha Yoga Centre, Madurai, Rameshwaram & the tip of India.",
     "highlights": [
       "Isha Yoga Centre",
@@ -690,7 +690,7 @@ export const ALL_PACKAGES: PackageItem[] = [
     "days": 5,
     "price": 11999,
     "formattedPrice": "₹11,999",
-    "image": "/images/meenakshi-temple.jpg",
+    "image": "/images/chennai-kapaleeshwarar.jpg",
     "description": "Comprehensive tour from Chennai covering Kanchipuram, Madurai Meenakshi, Rameshwaram & Dhanushkodi.",
     "highlights": [
       "Chennai Temples",
@@ -908,7 +908,7 @@ export const ALL_PACKAGES: PackageItem[] = [
     "days": 7,
     "price": 17999,
     "formattedPrice": "₹17,999",
-    "image": "/images/thanjavur-temple.jpg",
+    "image": "/images/srirangam-temple.jpg",
     "description": "Epic multi-state yatra from Hyderabad covering Mallikarjuna Jyotirlinga, Madurai, Srirangam, Rameshwaram, Kanyakumari & Trivandrum.",
     "highlights": [
       "Mallikarjuna Jyotirlinga",
@@ -1039,7 +1039,7 @@ export const ALL_PACKAGES: PackageItem[] = [
     "days": 7,
     "price": 17999,
     "formattedPrice": "₹17,999",
-    "image": "/images/tirupati-temple.jpg",
+    "image": "/images/srisailam-mallikarjuna.jpg",
     "description": "Grand Jyotirlinga & temple circuit — Srisailam Mallikarjuna, Tirupati Balaji, Rameshwaram, Kanyakumari & Madurai.",
     "highlights": [
       "Mallikarjuna Jyotirlinga",
@@ -1170,7 +1170,7 @@ export const ALL_PACKAGES: PackageItem[] = [
     "days": 7,
     "price": 15999,
     "formattedPrice": "₹15,999",
-    "image": "/images/kanyakumari-rock.jpg",
+    "image": "/images/pondicherry-french-quarter.jpg",
     "description": "Scenic spiritual tour covering major temples and beautiful coastal destinations across South India.",
     "highlights": [
       "Pondicherry",
@@ -1301,7 +1301,7 @@ export const ALL_PACKAGES: PackageItem[] = [
     "days": 8,
     "price": 19999,
     "formattedPrice": "₹19,999",
-    "image": "/images/thanjavur-temple.jpg",
+    "image": "/images/mahabalipuram-shore-temple.jpg",
     "description": "The grand Tamil Nadu pilgrimage — Chennai, Kanchipuram, Mahabalipuram, Pondicherry, Chidambaram, Kumbakonam, Thanjavur, Trichy, Rameshwaram, Kanyakumari & Madurai.",
     "highlights": [
       "Kanchipuram",
@@ -1448,7 +1448,7 @@ export const ALL_PACKAGES: PackageItem[] = [
     "days": 9,
     "price": 22999,
     "formattedPrice": "₹22,999",
-    "image": "/images/thanjavur-temple.jpg",
+    "image": "/images/kanchipuram-temple.jpg",
     "description": "Comprehensive heritage tour covering Tirupati, Kanchipuram, Thanjavur, Madurai, Rameshwaram, Kanyakumari & Kerala highlights.",
     "highlights": [
       "Tirupati",
@@ -1608,7 +1608,7 @@ export const ALL_PACKAGES: PackageItem[] = [
     "days": 10,
     "price": 22999,
     "formattedPrice": "₹22,999",
-    "image": "/images/temple-tour-hero.jpg",
+    "image": "/images/trivandrum-padmanabhaswamy.jpg",
     "description": "Epic two-state yatra — Madurai, Rameshwaram, Kanyakumari, Trivandrum, Alleppey houseboat, Munnar & Cochin.",
     "highlights": [
       "Madurai",
@@ -1782,7 +1782,7 @@ export const ALL_PACKAGES: PackageItem[] = [
     "days": 11,
     "price": 24999,
     "formattedPrice": "₹24,999",
-    "image": "/images/meenakshi-temple.jpg",
+    "image": "/images/chidambaram-nataraja-temple.jpg",
     "description": "The ultimate South India temple tour covering Tamil Nadu, Kerala & Andhra Pradesh — every major temple and scenic destination.",
     "highlights": [
       "Chennai",
@@ -1972,7 +1972,7 @@ export const ALL_PACKAGES: PackageItem[] = [
     "days": 11,
     "price": 24999,
     "formattedPrice": "₹24,999",
-    "image": "/images/thanjavur-temple.jpg",
+    "image": "/images/hampi-stone-chariot.jpg",
     "description": "Grand multi-state tour covering Karnataka, Tamil Nadu & Kerala — Mysore Palace, Hampi, Madurai, Rameshwaram & Kerala backwaters.",
     "highlights": [
       "Mysore",
@@ -2469,7 +2469,7 @@ export const ALL_PACKAGES: PackageItem[] = [
     "days": 4,
     "price": 10999,
     "formattedPrice": "₹10,999",
-    "image": "/images/murugan-temple.jpg",
+    "image": "/images/tiruchendur-murugan-temple.jpg",
     "description": "Divine 4-day South Tamil Nadu yatra covering Meenakshi Amman Temple in Madurai, Ramanathaswamy Temple & Dhanushkodi in Rameshwaram, the seashore Murugan temple at Tiruchendur and the sacred tip of India at Kanyakumari.",
     "highlights": [
       "Meenakshi Amman Temple",
@@ -2559,7 +2559,7 @@ export const ALL_PACKAGES: PackageItem[] = [
     "days": 7,
     "price": 16999,
     "formattedPrice": "₹16,999",
-    "image": "/images/kanyakumari-rock.jpg",
+    "image": "/images/kerala-varkala.jpg",
     "description": "A 7-day South India pilgrimage from Madurai to Varkala — Meenakshi Amman Temple, Ramanathaswamy Temple & Dhanushkodi, the sunrise-sunset shores of Kanyakumari, Sree Padmanabhaswamy Temple in Trivandrum and the cliffs of Varkala.",
     "highlights": [
       "Meenakshi Amman Temple",
@@ -2692,7 +2692,7 @@ export const ALL_PACKAGES: PackageItem[] = [
     "days": 11,
     "price": 54999,
     "formattedPrice": "₹54,999",
-    "image": "/images/murugan-temple.jpg",
+    "image": "/images/jyotirlinga-shiva-temple.jpg",
     "description": "A grand 11-day pilgrimage covering 2 Jyotirlingas, 5 Shakthi Peet temples, 5 Aarupadai Veedu Murugan temples, 5 Pancha Bootham Sthalams and several 108 Divya Desams — from Hyderabad & Srisailam through Madurai, Kanyakumari, Rameshwaram, Trichy, Kumbakonam to Chennai.",
     "highlights": [
       "Srisailam Mallikarjuna Jyotirlinga",
@@ -2881,7 +2881,7 @@ export const ALL_PACKAGES: PackageItem[] = [
     "days": 6,
     "price": 14999,
     "formattedPrice": "₹14,999",
-    "image": "/images/rameshwaram-temple.jpg",
+    "image": "/images/thiruparankundram-temple.jpg",
     "description": "A 6-day temple trail from Madurai to Trivandrum — Meenakshi Amman Temple, two full days of Rameshwaram darshan and Dhanushkodi, the three-ocean confluence at Kanyakumari and the coastal shrines and beaches of Trivandrum.",
     "highlights": [
       "Meenakshi Amman Temple",
@@ -3073,7 +3073,7 @@ export const ALL_PACKAGES: PackageItem[] = [
     "days": 3,
     "price": 6999,
     "formattedPrice": "₹6,999",
-    "image": "/images/thanjavur-temple.jpg",
+    "image": "/images/tiruvannamalai-arunachaleswarar.jpg",
     "description": "Complete pilgrimage to all five Pancha Bhoota Sthalams — Sri Kalahasti (Air), Ekambareswarar (Earth), Arunachaleswarar (Fire), Jambukeswarar (Water) & Chidambaram Nataraja (Space).",
     "highlights": [
       "Sri Kalahasti (Vayu)",
@@ -3412,6 +3412,1125 @@ export const ALL_PACKAGES: PackageItem[] = [
       "pax4": 18999,
       "pax6": 16499,
       "pax12": 13999
+    }
+  },
+
+  // ============================================================
+  // KERALA TOUR PACKAGES
+  // ============================================================
+
+  {
+    "id": "ker-daytour",
+    "name": "Kerala Day-Wise Signature Tour — Munnar, Thekkady, Alleppey, Varkala & Trivandrum",
+    "state": "kerala",
+    "stateLabel": "Kerala",
+    "duration": "6 Nights / 7 Days",
+    "nights": 6,
+    "days": 7,
+    "price": 22999,
+    "formattedPrice": "₹22,999",
+    "image": "/images/kerala-munnar-tea.jpg",
+    "description": "The ultimate Kerala discovery — lush Munnar tea gardens, wild Thekkady jungles, serene Alleppey backwaters, Varkala sea cliffs, and sacred Trivandrum temples. All in one seamless 7-day private circuit through God's Own Country.",
+    "highlights": [
+      "Munnar Tea Gardens & Eravikulam NP",
+      "Thekkady Periyar Wildlife Safari",
+      "Alleppey Backwater Houseboat",
+      "Varkala Cliff Beach",
+      "Kovalam Lighthouse Beach",
+      "Padmanabhaswamy Temple Darshan",
+      "Athirapally Waterfalls"
+    ],
+    "accommodation": "3-Star Hotels",
+    "transport": "Private AC Vehicle",
+    "isCustomizable": true,
+    "category": "kerala",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrival & Munnar Hill Station — Tea Gardens & Misty Peaks",
+        "route": "Cochin Airport / Ernakulam → Munnar (130 km, ~3.5 hrs)",
+        "distanceTime": "130 km / 3.5 hours",
+        "highlights": [
+          "Scenic mountain drive through Ghats",
+          "Mattupetty Dam & Echo Point",
+          "Eravikulam National Park (Nilgiri Tahr)",
+          "Tea Museum & factory visit"
+        ],
+        "description": "Arrive at Cochin International Airport. Your private AC chauffeur drives you through picturesque mountain roads to the queen of hill stations — Munnar. En route stop at Cheeyappara Waterfalls. Evening visit Mattupetty Dam and Echo Point with stunning valley views.",
+        "stay": "3-Star Hill Resort in Munnar",
+        "meals": "Breakfast included"
+      },
+      {
+        "day": 2,
+        "title": "Munnar to Thekkady — Spice Plantations & Wildlife Safari",
+        "route": "Munnar → Thekkady (90 km, ~2.5 hrs)",
+        "distanceTime": "90 km / 2.5 hours",
+        "highlights": [
+          "Periyar Wildlife Sanctuary boat safari",
+          "Wild elephant & gaur sightings",
+          "Spice & tea plantation walk",
+          "Kumily Spice Market evening walk"
+        ],
+        "description": "After breakfast, drive through aromatic spice forests to Thekkady. Board the Periyar Lake boat safari and watch wild elephants, sambar deer, and rare Malabar giant squirrels in their natural habitat. Visit a working spice plantation and learn about cardamom, pepper and cinnamon cultivation.",
+        "stay": "3-Star Jungle Resort in Thekkady",
+        "meals": "Breakfast included"
+      },
+      {
+        "day": 3,
+        "title": "Thekkady to Alleppey — Backwater Houseboat Cruise",
+        "route": "Thekkady → Alleppey (145 km, ~3 hrs) → Overnight Houseboat",
+        "distanceTime": "145 km / 3 hours",
+        "highlights": [
+          "Traditional Kerala rice-barge houseboat check-in",
+          "Vembanad Lake cruise at sunset",
+          "Village life along backwater canals",
+          "Fresh Kerala seafood dinner on board"
+        ],
+        "description": "Drive to the Venice of the East — Alleppey. Board your premium traditional wooden houseboat (kettuvallam) and cruise through the serene network of canals, lagoons and lakes. Watch village life, Chinese fishing nets, and paddy fields from your private floating villa. Overnight on the houseboat.",
+        "stay": "Luxury Houseboat on Alleppey Backwaters",
+        "meals": "Breakfast, Lunch & Dinner included"
+      },
+      {
+        "day": 4,
+        "title": "Alleppey Morning Cruise & Drive to Varkala",
+        "route": "Alleppey → Varkala (70 km, ~2 hrs)",
+        "distanceTime": "70 km / 2 hours",
+        "highlights": [
+          "Morning backwater sunrise cruise",
+          "Varkala North Cliff walkway",
+          "Papanasam Beach — sacred healing waters",
+          "Janardhanaswamy Temple visit"
+        ],
+        "description": "Wake up to a magical backwater sunrise before disembarking. Drive to the clifftop paradise of Varkala — one of the most spectacular beaches in Asia. Walk along the dramatic cliff promenade with cliff-edge cafes, Ayurvedic massage centres, and the stunning Arabian Sea below.",
+        "stay": "3-Star Cliff Resort in Varkala",
+        "meals": "Breakfast included"
+      },
+      {
+        "day": 5,
+        "title": "Varkala to Kovalam Beach — Arabian Sea Leisure",
+        "route": "Varkala → Kovalam (40 km, ~1 hr)",
+        "distanceTime": "40 km / 1 hour",
+        "highlights": [
+          "Kovalam Lighthouse Beach relaxation",
+          "Hawa Beach & Eve's Beach",
+          "Beachside Ayurvedic massage therapy",
+          "Freshwater sea fishing experience"
+        ],
+        "description": "Short drive to Kerala's most famous beach — Kovalam. The iconic crescent-shaped Lighthouse Beach is perfect for swimming, sunbathing, and Ayurvedic treatments. Enjoy a leisurely afternoon watching the dramatic sunset as the lighthouse beam sweeps the Arabian Sea.",
+        "stay": "3-Star Beach Resort in Kovalam",
+        "meals": "Breakfast included"
+      },
+      {
+        "day": 6,
+        "title": "Trivandrum Sacred Darshans & City Sightseeing",
+        "route": "Kovalam → Thiruvananthapuram (16 km)",
+        "distanceTime": "16 km / 30 minutes",
+        "highlights": [
+          "Sree Padmanabhaswamy Temple darshan (world's richest temple)",
+          "Attukal Bhagavathy Temple",
+          "Napier Museum & Zoo",
+          "Kuthiramalika Palace Museum"
+        ],
+        "description": "Early morning darshan at the majestic Sree Padmanabhaswamy Temple — the world's wealthiest temple with Lord Vishnu in eternal recline. Visit Attukal Bhagavathy Temple, Napier Museum with its Indo-Saracenic architecture, and the colonial-era Kuthiramalika (Puthenmalika) Palace Museum.",
+        "stay": "3-Star Hotel in Trivandrum",
+        "meals": "Breakfast included"
+      },
+      {
+        "day": 7,
+        "title": "Athirapally Waterfalls Day Trip & Departure",
+        "route": "Trivandrum → Airport / Departure Transfer",
+        "distanceTime": "Airport transfer",
+        "highlights": [
+          "Souvenir shopping — Kerala spices, handicrafts",
+          "Departure airport / railway station transfer",
+          "Fond Kerala farewell"
+        ],
+        "description": "Enjoy a leisurely final breakfast and some last-minute souvenir shopping for Kerala spices, kasavu sarees, and handloom products before your private chauffeur transfers you to Trivandrum International Airport (TRV) or Railway Station.",
+        "stay": "Departure Transfer",
+        "meals": "Breakfast included"
+      }
+    ],
+    "paxPricing": {
+      "pax2": 26999,
+      "pax4": 22999,
+      "pax6": 19999,
+      "pax12": 16999
+    }
+  },
+
+  {
+    "id": "ker-cruise",
+    "name": "Kerala Backwater Cruise & Alleppey Houseboat Getaway",
+    "state": "kerala",
+    "stateLabel": "Kerala",
+    "duration": "2 Nights / 3 Days",
+    "nights": 2,
+    "days": 3,
+    "price": 12999,
+    "formattedPrice": "₹12,999",
+    "image": "/images/kerala-alleppey-houseboat.jpg",
+    "description": "Drift through the legendary Kerala backwaters on a traditional wooden houseboat. Overnight cruise on Vembanad Lake, Alleppey canals, and scenic Punnamada backwaters — the most enchanting waterway experience in all of India.",
+    "highlights": [
+      "Overnight Alleppey Houseboat Stay",
+      "Vembanad Lake Sunset Cruise",
+      "Backwater Village Tour by Canoe",
+      "Chinese Fishing Nets at Kochi",
+      "Kerala Seafood Feast On Board",
+      "Kuttanad — Kerala's Rice Bowl"
+    ],
+    "accommodation": "Luxury Houseboat + 3-Star Hotel",
+    "transport": "Private AC Vehicle + Houseboat",
+    "isCustomizable": true,
+    "category": "kerala",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrival in Kochi & Fort Kochi Heritage Walk",
+        "route": "Cochin Airport → Fort Kochi → Alleppey",
+        "distanceTime": "80 km total / 2.5 hours",
+        "highlights": [
+          "Chinese Fishing Nets at Fort Kochi",
+          "St. Francis Church (Vasco da Gama's original tomb)",
+          "Mattancherry Dutch Palace",
+          "Jew Town Spice Markets"
+        ],
+        "description": "Arrive at Cochin International Airport. Drive to colonial Fort Kochi for a heritage walk past the iconic Chinese fishing nets, St. Francis Church, Dutch Mattancherry Palace, and the colourful Jew Town spice bazaar. Continue to Alleppey for houseboat boarding.",
+        "stay": "Luxury Houseboat on Alleppey Backwaters",
+        "meals": "Welcome Drink & Dinner included"
+      },
+      {
+        "day": 2,
+        "title": "Full-Day Backwater Cruise — Punnamada Lake & Village Canals",
+        "route": "Alleppey Houseboat → Punnamada Lake → Kuttanad",
+        "distanceTime": "Houseboat Cruise (All Day)",
+        "highlights": [
+          "Sunrise over Punnamada Lake",
+          "Canoe through narrow village waterways",
+          "Toddy tappers & coir weavers demonstration",
+          "Fresh catch Kerala prawn curry lunch on board"
+        ],
+        "description": "A full enchanting day afloat. Cruise through Punnamada Lake, meander into narrow village canals by country canoe, watch coir-weaving and toddy-tapping at work, and enjoy a lavish Kerala meal — rice, fish curry, prawn, and payasam — cooked fresh on board by your houseboat chef.",
+        "stay": "Luxury Houseboat — Overnight Moored at Alleppey",
+        "meals": "Breakfast, Lunch & Dinner included"
+      },
+      {
+        "day": 3,
+        "title": "Morning Sunrise Cruise & Departure",
+        "route": "Alleppey → Cochin Airport",
+        "distanceTime": "55 km / 1.5 hours",
+        "highlights": [
+          "Golden sunrise over the backwaters",
+          "Disembarkation & hotel transfer",
+          "Departure airport transfer"
+        ],
+        "description": "Wake to a stunning backwater sunrise before disembarking. Your private chauffeur then transfers you to Cochin International Airport (COK) with cherished memories of Kerala's liquid paradise.",
+        "stay": "Departure Transfer",
+        "meals": "Breakfast included"
+      }
+    ],
+    "paxPricing": {
+      "pax2": 15999,
+      "pax4": 12999,
+      "pax6": 10999,
+      "pax12": 8999
+    }
+  },
+
+  {
+    "id": "ker-adventure",
+    "name": "Kerala Wild Adventure — Trekking, Rafting & Jungle Safari",
+    "state": "kerala",
+    "stateLabel": "Kerala",
+    "duration": "4 Nights / 5 Days",
+    "nights": 4,
+    "days": 5,
+    "price": 19999,
+    "formattedPrice": "₹19,999",
+    "image": "/images/kerala-adventure.jpg",
+    "description": "Thrilling multi-adventure circuit across Kerala's wild heart — summit Munnar peaks, raft the Periyar rapids, trek through Wayanad jungles, and spot elephants at Thekkady. Designed for the bold explorer who craves authentic wilderness.",
+    "highlights": [
+      "Munnar Rajamala Peak Trek",
+      "White Water Rafting — Periyar River",
+      "Wayanad Chembra Peak Trek",
+      "Thekkady Jungle Trekking",
+      "Athirapally Waterfall Rappelling",
+      "Night Jungle Safari"
+    ],
+    "accommodation": "3-Star Adventure Camps & Eco Resorts",
+    "transport": "Private AC Vehicle",
+    "isCustomizable": true,
+    "category": "kerala",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrival in Munnar — Eravikulam Trek & Tea Estate Walk",
+        "route": "Cochin Airport → Munnar (130 km)",
+        "distanceTime": "130 km / 3.5 hours",
+        "highlights": [
+          "Eravikulam National Park guided nature walk",
+          "Nilgiri Tahr wildlife spotting",
+          "Tea factory tour and tasting",
+          "Sunset at Top Station viewpoint"
+        ],
+        "description": "Arrive and head straight to Eravikulam National Park for a guided nature walk amid tea estates. Trek to Top Station at 1,880 m for panoramic views of Tamil Nadu hills. Evening bonfire at eco-camp.",
+        "stay": "3-Star Eco Tent / Adventure Camp, Munnar",
+        "meals": "Breakfast included"
+      },
+      {
+        "day": 2,
+        "title": "Thekkady Jungle Trekking & Night Safari",
+        "route": "Munnar → Thekkady (90 km)",
+        "distanceTime": "90 km / 2.5 hours",
+        "highlights": [
+          "Periyar Tiger Reserve border trek",
+          "Bamboo rafting on Periyar Lake",
+          "Guided night jungle safari",
+          "Wild elephant & leopard tracking"
+        ],
+        "description": "Transfer to Thekkady for an action-packed jungle day — Periyar Tiger Reserve border trekking, bamboo rafting on the serene lake, and a spine-tingling night jungle safari with trained naturalists.",
+        "stay": "3-Star Jungle Resort, Thekkady",
+        "meals": "Breakfast included"
+      },
+      {
+        "day": 3,
+        "title": "White Water Rafting & Athirapally Waterfall Rappelling",
+        "route": "Thekkady → Athirapally (150 km)",
+        "distanceTime": "150 km / 3.5 hours",
+        "highlights": [
+          "Grade III–IV white water rafting, Chalakudy River",
+          "Athirapally Waterfall rappelling",
+          "Vazhachal Forest eco-walk",
+          "Rock climbing activity"
+        ],
+        "description": "Drive to Athirapally — Kerala's Niagara Falls. Experience Grade III-IV white water rafting on the Chalakudy River, rappelling down the thundering 80-foot Athirapally Falls face, and a forest eco-walk in Vazhachal.",
+        "stay": "3-Star Resort near Athirapally",
+        "meals": "Breakfast included"
+      },
+      {
+        "day": 4,
+        "title": "Wayanad Chembra Peak Summit Trek",
+        "route": "Athirapally → Wayanad (140 km)",
+        "distanceTime": "140 km / 3 hours",
+        "highlights": [
+          "Chembra Peak (2,100 m) summit trek — heart-shaped lake",
+          "Soochipara Waterfall & natural pool swim",
+          "Edakkal Caves prehistoric petroglyphs",
+          "Wayanad tribal village cultural visit"
+        ],
+        "description": "Summit the iconic Chembra Peak (2,100 m) with its famous heart-shaped lake near the summit. Afternoon visit Soochipara Waterfall for a natural pool swim, then explore the 8,000-year-old petroglyphs of Edakkal Caves.",
+        "stay": "3-Star Hill Resort, Wayanad",
+        "meals": "Breakfast included"
+      },
+      {
+        "day": 5,
+        "title": "Wayanad Canopy Walk & Departure",
+        "route": "Wayanad → Calicut Airport / Railway Station",
+        "distanceTime": "80 km / 2 hours",
+        "highlights": [
+          "Pookode Lake morning kayaking",
+          "Bamboo canopy walk in Muthanga forest",
+          "Departure airport transfer"
+        ],
+        "description": "Final morning adventure — kayaking on Pookode Lake and a bamboo canopy walk through Muthanga Wildlife Sanctuary. Transfer to Calicut (Kozhikode) Airport (CCJ) for departure.",
+        "stay": "Departure Transfer",
+        "meals": "Breakfast included"
+      }
+    ],
+    "paxPricing": {
+      "pax2": 24999,
+      "pax4": 19999,
+      "pax6": 16999,
+      "pax12": 13999
+    }
+  },
+
+  {
+    "id": "ker-honeymoon",
+    "name": "Kerala Honeymoon Paradise — Munnar, Alleppey & Kovalam",
+    "state": "kerala",
+    "stateLabel": "Kerala",
+    "duration": "5 Nights / 6 Days",
+    "nights": 5,
+    "days": 6,
+    "price": 29999,
+    "formattedPrice": "₹29,999",
+    "image": "/images/kerala-honeymoon.jpg",
+    "description": "Kerala's most romantic honeymoon circuit — misty Munnar highlands for couples, a private overnight houseboat on Alleppey backwaters with candlelit dinners, and sunset evenings at Kovalam's golden beach. The perfect beginning to forever.",
+    "highlights": [
+      "Private Romantic Houseboat — Alleppey",
+      "Couple Spa at Luxury Munnar Resort",
+      "Sunset Canoe Ride on Backwaters",
+      "Rose Petal Bed Decoration on Arrival",
+      "Candlelight Beach Dinner — Kovalam",
+      "Misty Waterfall Picnic — Munnar"
+    ],
+    "accommodation": "Premium 3-Star & Boutique Honeymoon Resorts",
+    "transport": "Private Luxury AC Vehicle",
+    "isCustomizable": true,
+    "category": "kerala",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Romantic Arrival in Munnar — Misty Hills & Waterfall Picnic",
+        "route": "Cochin Airport → Munnar (130 km)",
+        "distanceTime": "130 km / 3.5 hours",
+        "highlights": [
+          "Rose petal welcome at resort",
+          "Private waterfall picnic setup",
+          "Couple Ayurvedic massage session",
+          "Candlelight dinner at the resort"
+        ],
+        "description": "Your love story in Kerala begins. Arrive at Cochin Airport and drive through stunning mountain ghat roads to Munnar. Your honeymoon suite awaits with a rose petal welcome. Enjoy a private picnic setup by a Munnar waterfall, followed by a soothing couple's Ayurvedic massage at your resort spa.",
+        "stay": "Honeymoon Suite — Premium Hill Resort, Munnar",
+        "meals": "Welcome Drink & Breakfast included"
+      },
+      {
+        "day": 2,
+        "title": "Munnar Highlands — Tea Estates & Misty Valleys",
+        "route": "Munnar Sightseeing",
+        "distanceTime": "Local sightseeing (50 km)",
+        "highlights": [
+          "Eravikulam NP — Nilgiri Tahr wildlife",
+          "Top Station panoramic valley views",
+          "Tea Museum couple experience",
+          "Sunset photo session at Echo Point"
+        ],
+        "description": "Explore Munnar at a leisurely romantic pace. Visit Eravikulam National Park, drive to Top Station for misty valley panoramas, enjoy couple photo sessions at the iconic Echo Point where your voices echo across the Western Ghats.",
+        "stay": "Honeymoon Suite — Premium Hill Resort, Munnar",
+        "meals": "Breakfast included"
+      },
+      {
+        "day": 3,
+        "title": "Private Houseboat Cruise — Alleppey Backwaters",
+        "route": "Munnar → Alleppey (145 km) → Private Houseboat",
+        "distanceTime": "145 km / 3 hours",
+        "highlights": [
+          "Exclusive private houseboat for two",
+          "Sunset champagne on boat deck",
+          "Star-gazing from houseboat roof",
+          "Kerala prawn curry romantic dinner"
+        ],
+        "description": "Your most magical day — board your exclusive private houseboat. Cruise through mirror-like canals framed by swaying coconut palms. Sip sunset drinks on the open deck as the sky turns amber. A private Kerala feast awaits under the stars.",
+        "stay": "Private Luxury Houseboat — Alleppey",
+        "meals": "Breakfast, Lunch & Dinner included"
+      },
+      {
+        "day": 4,
+        "title": "Sunrise Cruise & Varkala Cliff Romance",
+        "route": "Alleppey → Varkala (70 km)",
+        "distanceTime": "70 km / 2 hours",
+        "highlights": [
+          "Sunrise backwater photography",
+          "Varkala North Cliff sunset stroll",
+          "Beachside couple massage",
+          "Clifftop candlelight dinner"
+        ],
+        "description": "Wake to a golden backwater sunrise before disembarking. Drive to dramatic Varkala — the cliff paradise. Stroll the clifftop promenade hand in hand, enjoy a couple's beachside Ayurvedic massage, and end the evening at a cliff-edge restaurant with ocean views.",
+        "stay": "3-Star Cliff Boutique Resort, Varkala",
+        "meals": "Breakfast included"
+      },
+      {
+        "day": 5,
+        "title": "Kovalam Beach — Sunset Bliss & Arabian Sea",
+        "route": "Varkala → Kovalam (40 km)",
+        "distanceTime": "40 km / 1 hour",
+        "highlights": [
+          "Kovalam Lighthouse Beach couple walk",
+          "Beachside Ayurvedic couple spa",
+          "Candlelight seafood dinner by the sea",
+          "Sunset photography at Lighthouse Point"
+        ],
+        "description": "Drive to Kerala's iconic crescent Kovalam beach. Spend the day swimming, relaxing, and soaking in the tropical sun. As the sun dips into the Arabian Sea, your private candlelight seafood dinner on the beach is set — a memory to last a lifetime.",
+        "stay": "3-Star Beachside Resort, Kovalam",
+        "meals": "Breakfast & Dinner included"
+      },
+      {
+        "day": 6,
+        "title": "Trivandrum Darshan & Departure",
+        "route": "Kovalam → Trivandrum Airport",
+        "distanceTime": "16 km / 30 minutes",
+        "highlights": [
+          "Padmanabhaswamy Temple morning blessing",
+          "Souvenir shopping — Kerala handicrafts",
+          "Airport departure transfer"
+        ],
+        "description": "Begin your married life with a divine blessing at Sree Padmanabhaswamy Temple. Then shop for Kerala silk, spices, and elephant figurines as lasting memories before your chauffeur transfers you to Trivandrum International Airport.",
+        "stay": "Departure Transfer",
+        "meals": "Breakfast included"
+      }
+    ],
+    "paxPricing": {
+      "pax2": 29999,
+      "pax4": 24999,
+      "pax6": 21999
+    }
+  },
+
+  {
+    "id": "ker-family",
+    "name": "Kerala Family Holiday — Kochi, Munnar, Thekkady & Alleppey",
+    "state": "kerala",
+    "stateLabel": "Kerala",
+    "duration": "5 Nights / 6 Days",
+    "nights": 5,
+    "days": 6,
+    "price": 21999,
+    "formattedPrice": "₹21,999",
+    "image": "/images/kerala-family.jpg",
+    "description": "The perfect Kerala family getaway — historic Kochi heritage walk, Munnar tea garden picnics, Thekkady elephant encounters, and a magical houseboat night with kids. Packed with fun, discovery, and family bonding across God's Own Country.",
+    "highlights": [
+      "Kochi Fort Heritage Walk & Marine Drive",
+      "Munnar Tea Museum Kids Experience",
+      "Thekkady Elephant Interaction",
+      "Alleppey Family Houseboat Cruise",
+      "Kerala Traditional Cuisine Cooking Class",
+      "Mattupetty Dam Boating"
+    ],
+    "accommodation": "3-Star Family Hotels & Houseboat",
+    "transport": "Private AC Innova / Tempo Traveller",
+    "isCustomizable": true,
+    "category": "kerala",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrival in Kochi — Fort Kochi Heritage & Marine Drive",
+        "route": "Cochin Airport → Fort Kochi → Hotel",
+        "distanceTime": "40 km / 1 hour",
+        "highlights": [
+          "Chinese Fishing Nets demonstration for kids",
+          "Mattancherry Spice Market",
+          "Kerala cultural show (Kathakali)",
+          "Marine Drive evening stroll"
+        ],
+        "description": "Arrive at Cochin and explore the vibrant Fort Kochi area. Kids love the giant Chinese Fishing Nets in action. Visit the colourful spice markets, enjoy an evening Kathakali cultural performance, and stroll along Marine Drive waterfront.",
+        "stay": "3-Star Family Hotel, Kochi",
+        "meals": "Welcome Drink & Breakfast included"
+      },
+      {
+        "day": 2,
+        "title": "Kochi to Munnar — Tea Factory & Waterfall Fun",
+        "route": "Kochi → Munnar (130 km, ~3.5 hrs)",
+        "distanceTime": "130 km / 3.5 hours",
+        "highlights": [
+          "Cheeyappara & Valara waterfalls play stop",
+          "Tea Museum & plantation walk",
+          "Mattupetty Dam family boating",
+          "Echo Point fun with kids"
+        ],
+        "description": "Scenic mountain drive with stops at Cheeyappara and Valara waterfalls where kids can splash around. In Munnar, visit the Tea Museum, enjoy boating on Mattupetty Dam, and have fun calling out at Echo Point.",
+        "stay": "3-Star Family Resort, Munnar",
+        "meals": "Breakfast included"
+      },
+      {
+        "day": 3,
+        "title": "Munnar to Thekkady — Wildlife Safari & Spice Gardens",
+        "route": "Munnar → Thekkady (90 km, ~2.5 hrs)",
+        "distanceTime": "90 km / 2.5 hours",
+        "highlights": [
+          "Periyar Wildlife Sanctuary boat safari",
+          "Elephant interaction programme",
+          "Spice plantation guided walk",
+          "Kumily handicraft market"
+        ],
+        "description": "Drive through spice-scented forests to Thekkady. The whole family boards the Periyar Lake boat safari, spotting elephants, otters, and deer. The elephant interaction programme — where kids can feed and bathe elephants — is an unforgettable highlight.",
+        "stay": "3-Star Jungle Resort, Thekkady",
+        "meals": "Breakfast included"
+      },
+      {
+        "day": 4,
+        "title": "Thekkady to Alleppey — Houseboat Adventure",
+        "route": "Thekkady → Alleppey (145 km, ~3 hrs)",
+        "distanceTime": "145 km / 3 hours",
+        "highlights": [
+          "Family houseboat check-in at Alleppey",
+          "Backwater canoe ride for kids",
+          "Fishing from boat deck",
+          "Kerala seafood dinner on houseboat"
+        ],
+        "description": "Drive to Alleppey and board your family houseboat. Kids absolutely love the fishing from the deck, watching kingfisher birds, and exploring the narrow canals by canoe. A massive Kerala meal under the stars rounds off this magical day.",
+        "stay": "Family Houseboat — Alleppey Backwaters",
+        "meals": "Breakfast, Lunch & Dinner included"
+      },
+      {
+        "day": 5,
+        "title": "Alleppey to Kovalam — Beach Day with Family",
+        "route": "Alleppey → Kovalam (170 km, ~3.5 hrs)",
+        "distanceTime": "170 km / 3.5 hours",
+        "highlights": [
+          "Kovalam Lighthouse Beach family fun",
+          "Sand castle building & beach games",
+          "Sea swimming & body surfing",
+          "Beachside Kerala fish barbecue"
+        ],
+        "description": "After morning houseboat disembarkation, drive to beautiful Kovalam beach. An entire day for family beach fun — swimming, sandcastles, beach cricket, and watching the famous lighthouse. Evening Kerala fish barbecue on the beach.",
+        "stay": "3-Star Beach Resort, Kovalam",
+        "meals": "Breakfast included"
+      },
+      {
+        "day": 6,
+        "title": "Trivandrum City Tour & Departure",
+        "route": "Kovalam → Trivandrum → Airport",
+        "distanceTime": "16 km to airport",
+        "highlights": [
+          "Trivandrum Zoo & Natural History Museum (kids favourite)",
+          "Padmanabhaswamy Temple darshan",
+          "Kerala spice & souvenir shopping",
+          "Airport departure transfer"
+        ],
+        "description": "Visit Trivandrum Zoo — one of India's finest — for the kids before a final Padmanabhaswamy Temple blessing. Stock up on Kerala spices, coir products, and elephant figurines before your flight home.",
+        "stay": "Departure Transfer",
+        "meals": "Breakfast included"
+      }
+    ],
+    "paxPricing": {
+      "pax4": 21999,
+      "pax6": 18999,
+      "pax12": 15999
+    }
+  },
+
+  {
+    "id": "ker-group",
+    "name": "Kerala Group Yatra — Complete Kerala Circuit (20-50 Pax)",
+    "state": "kerala",
+    "stateLabel": "Kerala",
+    "duration": "5 Nights / 6 Days",
+    "nights": 5,
+    "days": 6,
+    "price": 13999,
+    "formattedPrice": "₹13,999",
+    "image": "/images/kerala-group.jpg",
+    "description": "The most comprehensive Kerala group tour circuit — specifically designed for groups of 20–50 travellers. Private AC Tempo Traveller fleet, group houseboats on Alleppey, Munnar, Thekkady, Kovalam, and Trivandrum with dedicated tour coordinator and guide.",
+    "highlights": [
+      "Group Houseboat — Alleppey Backwaters",
+      "Munnar Tea Estate Group Walk",
+      "Thekkady Periyar Boat Safari",
+      "Kovalam Group Beach Day",
+      "Dedicated Tour Guide & Coordinator",
+      "Fort Kochi Heritage Group Walk"
+    ],
+    "accommodation": "3-Star Group Hotels & Group Houseboats",
+    "transport": "Fleet of Private AC Tempo Travellers",
+    "isCustomizable": true,
+    "category": "group",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Group Arrival — Kochi Welcome & Fort Kochi Heritage",
+        "route": "Cochin Airport → Fort Kochi → Hotel",
+        "distanceTime": "40 km / 1 hour",
+        "highlights": [
+          "Coordinated group airport pickup",
+          "Chinese Fishing Nets guided tour",
+          "Kathakali cultural performance for group",
+          "Welcome Kerala Sadya group dinner"
+        ],
+        "description": "Group arrival at Cochin Airport with fleet coordination. Heritage walk through Fort Kochi with dedicated guide. Evening traditional Kerala Sadya (banana leaf) welcome dinner.",
+        "stay": "3-Star Group Hotel, Kochi",
+        "meals": "Breakfast & Group Welcome Dinner"
+      },
+      {
+        "day": 2,
+        "title": "Group Drive to Munnar — Tea Estates & Mountain Views",
+        "route": "Kochi → Munnar (130 km)",
+        "distanceTime": "130 km / 3.5 hours",
+        "highlights": [
+          "Waterfall stops en route",
+          "Tea Museum group visit",
+          "Top Station sunset views",
+          "Evening cultural folk show"
+        ],
+        "description": "Fleet of Tempo Travellers winds up the ghats to Munnar with waterfall stopovers. Group visit to Tea Museum and plantation, Top Station viewpoint, and an evening Onam cultural folk dance performance.",
+        "stay": "3-Star Group Hotel, Munnar",
+        "meals": "Breakfast included"
+      },
+      {
+        "day": 3,
+        "title": "Munnar to Thekkady — Wildlife Group Safari",
+        "route": "Munnar → Thekkady (90 km)",
+        "distanceTime": "90 km / 2.5 hours",
+        "highlights": [
+          "Periyar group boat safari (multiple boats)",
+          "Elephant interaction zone",
+          "Spice plantation group walk",
+          "Campfire cultural night"
+        ],
+        "description": "Group wildlife experience at Periyar Tiger Reserve — multiple safari boats for the group. Elephant interaction programme and guided spice plantation walk. Evening campfire with folk music.",
+        "stay": "3-Star Group Resort, Thekkady",
+        "meals": "Breakfast included"
+      },
+      {
+        "day": 4,
+        "title": "Alleppey Group Houseboat Cruise",
+        "route": "Thekkady → Alleppey (145 km)",
+        "distanceTime": "145 km / 3 hours",
+        "highlights": [
+          "Multiple group houseboats (fleet)",
+          "Backwater sunset group photos",
+          "Group Kerala feast on houseboat",
+          "Overnight on the backwaters"
+        ],
+        "description": "Drive to Alleppey and board a fleet of houseboats for your group. Cruise through legendary backwaters with group sunset photo opportunities. Traditional Kerala fish curry, rice, and payasam group feast on board.",
+        "stay": "Group Houseboats — Alleppey",
+        "meals": "Breakfast, Lunch & Dinner included"
+      },
+      {
+        "day": 5,
+        "title": "Kovalam Beach — Group Leisure Day",
+        "route": "Alleppey → Kovalam (170 km)",
+        "distanceTime": "170 km / 3.5 hours",
+        "highlights": [
+          "Kovalam Lighthouse Beach group fun",
+          "Group beach volleyball & games",
+          "Seafood group barbecue on beach",
+          "Sunset group photography"
+        ],
+        "description": "Group beach day at Kovalam — swimming, beach volleyball, and group seafood barbecue as the sun sets. Professional group photography session at the lighthouse viewpoint.",
+        "stay": "3-Star Beach Resort, Kovalam",
+        "meals": "Breakfast included"
+      },
+      {
+        "day": 6,
+        "title": "Trivandrum Temple & Group Departure",
+        "route": "Kovalam → Trivandrum → Airport",
+        "distanceTime": "Airport transfers",
+        "highlights": [
+          "Padmanabhaswamy Temple group darshan",
+          "Group shopping — spices & handicrafts",
+          "Fleet departure transfers"
+        ],
+        "description": "Group darshan at Padmanabhaswamy Temple and last group shopping at Kerala handicraft stalls. Fleet of vehicles transfers the group to Trivandrum Airport (TRV).",
+        "stay": "Departure Transfer",
+        "meals": "Breakfast included"
+      }
+    ],
+    "paxPricing": {
+      "pax12": 13999
+    }
+  },
+
+  {
+    "id": "ker-temple",
+    "name": "Kerala Temple Pilgrimage Circuit — 5-Day Sacred Trail",
+    "state": "kerala",
+    "stateLabel": "Kerala",
+    "duration": "4 Nights / 5 Days",
+    "nights": 4,
+    "days": 5,
+    "price": 16999,
+    "formattedPrice": "₹16,999",
+    "image": "/images/kerala-temple-tour.jpg",
+    "description": "5-day Kerala Temple Pilgrimage tracing the most sacred shrines — Sree Padmanabhaswamy & Attukal in Trivandrum, Mannarasala Nagaraja & Ambalappuzha Krishna in Alleppey, Ettumanoor & Vaikom Mahadeva in Kottayam, Chottanikkara Devi in Kochi, Vadakkumnathan & Guruvayur Krishna in Thrissur — the definitive Kerala devotee trail.",
+    "highlights": [
+      "Sree Padmanabhaswamy Temple, Trivandrum",
+      "Attukal Bhagavathy Temple, Trivandrum",
+      "Mannarasala Nagaraja Temple, Harippad",
+      "Ambalappuzha Sree Krishna Temple",
+      "Ettumanoor Mahadeva Temple",
+      "Chottanikkara Devi Temple, Kochi",
+      "Vadakkumnathan Temple, Thrissur",
+      "Guruvayur Sree Krishna Temple"
+    ],
+    "accommodation": "3-Star Hotels",
+    "transport": "Private AC Vehicle",
+    "isCustomizable": true,
+    "category": "kerala",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Thiruvananthapuram — World's Richest Temple & Attukal Devi",
+        "route": "Trivandrum Airport → Padmanabhaswamy Temple → Attukal → Pazhavangadi Ganapathy → Aazhimala Shiva Temple",
+        "distanceTime": "Local sightseeing (25 km)",
+        "highlights": [
+          "Sree Padmanabhaswamy Temple — world's richest temple, Lord Vishnu in eternal recline",
+          "Attukal Bhagavathy Temple — Guinness Record for largest female congregation",
+          "Pazhavangadi Sree Maha Ganapathy Temple",
+          "Aazhimala Shiva Temple — ocean-facing Shiva shrine"
+        ],
+        "description": "Arrive at Trivandrum and proceed for the magnificent darshan at Sree Padmanabhaswamy Temple — the world's wealthiest temple with Lord Vishnu reclining on Anantha (traditional Kerala dhoti dress code required). Visit Attukal Bhagavathy Temple famous for its Pongala festival holding a Guinness World Record, then Pazhavangadi Ganapathy and the ocean-facing Aazhimala Shiva Temple.",
+        "stay": "3-Star Hotel, Thiruvananthapuram",
+        "meals": "Breakfast included"
+      },
+      {
+        "day": 2,
+        "title": "Trivandrum to Alleppey & Kottayam — Sacred Nagaraja & Krishna Shrines",
+        "route": "Trivandrum → Varkala → Harippad → Ambalappuzha → Alleppey → Kottayam",
+        "distanceTime": "200 km / 4.5 hours with temple stops",
+        "highlights": [
+          "Janardhanaswamy Temple, Varkala — 2,000-year-old Vishnu shrine on cliff",
+          "Mannarasala Sree Nagaraja Temple, Harippad — Kerala's most revered Nagaraja (Serpent King) temple",
+          "Ambalappuzha Sree Krishna Swamy Temple — famous for Palpayasam offering",
+          "Mullakkal Rajarajeswari Temple, Alleppey"
+        ],
+        "description": "Drive north from Trivandrum, stopping at the 2,000-year-old Janardhanaswamy Temple on Varkala cliff, the sacred Mannarasala Nagaraja Temple surrounded by 30,000 serpent idols in a sacred grove, and the Ambalappuzha Krishna Temple famous for its centuries-old Palpayasam (sweet rice) offering that miraculously appears daily.",
+        "stay": "3-Star Hotel, Kottayam / Alleppey",
+        "meals": "Breakfast included"
+      },
+      {
+        "day": 3,
+        "title": "Kottayam & Kochi — Mahadeva Temples & Chottanikkara Devi",
+        "route": "Kottayam → Ettumanoor → Vaikom → Chottanikkara → Kochi",
+        "distanceTime": "120 km / 3 hours with temple stops",
+        "highlights": [
+          "Ettumanoor Mahadeva Temple — 16th century Shiva temple with golden flagpole",
+          "Vaikom Mahadeva Temple — one of Kerala's most ancient Shiva temples",
+          "Chottanikkara Bhagavathy Devi Temple — miraculous healing shrine"
+        ],
+        "description": "Begin at Ettumanoor's spectacular Mahadeva Temple with its famous golden flagpole and elaborate Ashtamangalyam ritual. Drive to the ancient Vaikom Mahadeva Temple by the Vembanad Lake. Continue to the miraculous Chottanikkara Bhagavathy Temple where the Devi is said to cure mental ailments.",
+        "stay": "3-Star Hotel, Kochi / Ernakulam",
+        "meals": "Breakfast included"
+      },
+      {
+        "day": 4,
+        "title": "Thrissur — Vadakkumnathan & Sacred Twin Temples",
+        "route": "Kochi → Thrissur → Vadakkumnathan → Thiruvambady → Paramekkavu → Thriprayar",
+        "distanceTime": "100 km / 2.5 hours with temple stops",
+        "highlights": [
+          "Vadakkumnathan Temple — ancient Shiva shrine at the heart of Thrissur Pooram",
+          "Thiruvambady Bhagavathy Temple — one of the two pooram temples",
+          "Paramekkavu Bhagavathy Temple — the other iconic pooram temple",
+          "Thriprayar Sree Ramaswamy Temple — unique Rama temple"
+        ],
+        "description": "Drive to the cultural capital of Kerala — Thrissur. Darshan at Vadakkumnathan Temple — the grand Shiva shrine that anchors the famous Thrissur Pooram elephant procession. Visit the twin Thiruvambady and Paramekkavu Bhagavathy temples that face off in the world-famous Pooram festival. Continue to the rare Thriprayar Ramaswamy Temple by the riverside.",
+        "stay": "3-Star Hotel, Thrissur",
+        "meals": "Breakfast included"
+      },
+      {
+        "day": 5,
+        "title": "Guruvayur — Sree Krishna Darshan & Punnathur Kotta Elephant Sanctuary",
+        "route": "Thrissur → Guruvayur → Mammiyoor Temple → Punnathur Kotta → Departure",
+        "distanceTime": "30 km / 45 mins + departure transfer",
+        "highlights": [
+          "Guruvayur Sree Krishna Temple — Dwarka of South India",
+          "Mammiyoor Shiva Temple — Lord Shiva & Guruvayurappan worship together",
+          "Punnathur Kotta (Annakottil) — Kerala's only elephant sanctuary — 60+ temple elephants"
+        ],
+        "description": "Final day at Guruvayur — one of the holiest Vishnu temples in India. Join the devotees for morning darshan at the Sree Krishna Temple (Guruvayurappan). Visit Mammiyoor Temple for Lord Shiva darshan just opposite, and conclude with Punnathur Kotta elephant palace where 60+ temple elephants reside. Departure transfer to Thrissur / Calicut / Cochin.",
+        "stay": "Departure Transfer",
+        "meals": "Breakfast included"
+      }
+    ],
+    "paxPricing": {
+      "pax2": 19999,
+      "pax4": 16999,
+      "pax6": 13999,
+      "pax12": 11999
+    }
+  },
+
+  {
+    "id": "ker-tn-circuit",
+    "name": "Kerala & Tamil Nadu Grand Circuit — Munnar, Thekkady, Alleppey, Kovalam, Trivandrum & Kanyakumari",
+    "state": "kerala",
+    "stateLabel": "Kerala & TN",
+    "duration": "7 Nights / 8 Days",
+    "nights": 7,
+    "days": 8,
+    "price": 29999,
+    "formattedPrice": "₹29,999",
+    "image": "/images/kerala-kovalam-beach.jpg",
+    "description": "The grandest South India circuit — lush Munnar highlands, Thekkady wildlife, Alleppey backwaters, Kovalam beach, and Trivandrum temples in Kerala, with a scenic day-trip to the dramatic land's end at Kanyakumari where three oceans meet.",
+    "highlights": [
+      "Munnar Tea Gardens & Eravikulam NP",
+      "Thekkady Periyar Wildlife Safari",
+      "Alleppey Overnight Houseboat",
+      "Kovalam Lighthouse Beach",
+      "Padmanabhaswamy Temple Darshan",
+      "Kanyakumari Day Trip",
+      "Vivekananda Rock Memorial"
+    ],
+    "accommodation": "3-Star Hotels & Houseboat",
+    "transport": "Private AC Vehicle",
+    "isCustomizable": true,
+    "category": "kerala",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrival in Cochin & Fort Kochi Heritage",
+        "route": "Cochin Airport → Fort Kochi",
+        "distanceTime": "40 km / 1 hour",
+        "highlights": ["Fort Kochi Chinese Fishing Nets", "Mattancherry Dutch Palace", "Jew Town Spice Market", "Kerala Kathakali cultural show"],
+        "description": "Arrive at Cochin and explore the colonial Fort Kochi with its iconic Chinese Fishing Nets, 16th-century Dutch Palace, Jew Town, and a traditional Kathakali dance performance in the evening.",
+        "stay": "3-Star Hotel, Kochi",
+        "meals": "Welcome Drink & Breakfast"
+      },
+      {
+        "day": 2,
+        "title": "Kochi to Munnar — Western Ghats & Tea Estates",
+        "route": "Kochi → Munnar (130 km)",
+        "distanceTime": "130 km / 3.5 hours",
+        "highlights": ["Cheeyappara Waterfall stop", "Eravikulam NP — Nilgiri Tahr", "Top Station valley views", "Mattupetty Dam boating"],
+        "description": "Drive up the scenic Western Ghats to Munnar. Stop at Cheeyappara Waterfall, visit Eravikulam NP for Nilgiri Tahr sightings, and reach Top Station for sweeping valley panoramas.",
+        "stay": "3-Star Hill Resort, Munnar",
+        "meals": "Breakfast included"
+      },
+      {
+        "day": 3,
+        "title": "Munnar to Thekkady — Periyar Wildlife",
+        "route": "Munnar → Thekkady (90 km)",
+        "distanceTime": "90 km / 2.5 hours",
+        "highlights": ["Periyar Tiger Reserve boat safari", "Elephant interaction", "Spice plantation walk", "Kumily spice market"],
+        "description": "Drive through spice-laden forests to Thekkady. Periyar Lake boat safari for wildlife spotting, elephant interaction, and an aromatic spice plantation tour.",
+        "stay": "3-Star Jungle Resort, Thekkady",
+        "meals": "Breakfast included"
+      },
+      {
+        "day": 4,
+        "title": "Thekkady to Alleppey — Houseboat Overnight Cruise",
+        "route": "Thekkady → Alleppey (145 km)",
+        "distanceTime": "145 km / 3 hours",
+        "highlights": ["Houseboat cruise on backwaters", "Vembanad Lake sunset", "Kerala seafood dinner on board", "Overnight on the waterways"],
+        "description": "Drive to Alleppey and board your traditional houseboat. Cruise through the serene labyrinth of Keralan canals and lagoons. Kerala seafood dinner under the stars.",
+        "stay": "Luxury Houseboat, Alleppey",
+        "meals": "Breakfast, Lunch & Dinner"
+      },
+      {
+        "day": 5,
+        "title": "Alleppey to Kovalam — Beach Arrival",
+        "route": "Alleppey → Kovalam (170 km)",
+        "distanceTime": "170 km / 3.5 hours",
+        "highlights": ["Morning backwater sunrise", "Kovalam Lighthouse Beach", "Hawa Beach leisure", "Beachside Ayurvedic massage"],
+        "description": "Morning disembarkation from houseboat. Drive to Kovalam beach for a sun-soaked afternoon and Ayurvedic therapy at your beachside resort.",
+        "stay": "3-Star Beach Resort, Kovalam",
+        "meals": "Breakfast included"
+      },
+      {
+        "day": 6,
+        "title": "Trivandrum Temples & Sacred Darshans",
+        "route": "Kovalam → Trivandrum (16 km)",
+        "distanceTime": "16 km / 30 minutes",
+        "highlights": ["Padmanabhaswamy Temple VIP darshan", "Attukal Bhagavathy Temple", "Napier Museum", "Kuthiramalika Palace"],
+        "description": "Sacred morning darshan at Sree Padmanabhaswamy Temple, the world's wealthiest temple. Visit Attukal Bhagavathy Temple, the beautiful Napier Museum, and the royal Kuthiramalika Palace.",
+        "stay": "3-Star Hotel, Trivandrum",
+        "meals": "Breakfast included"
+      },
+      {
+        "day": 7,
+        "title": "Kanyakumari Day Trip — Land's End & Three Oceans",
+        "route": "Trivandrum → Kanyakumari → Trivandrum (180 km round trip)",
+        "distanceTime": "90 km each way / 2 hrs each side",
+        "highlights": ["Vivekananda Rock Memorial ferry", "Thiruvalluvar Statue", "Triveni Sangam — three oceans confluence", "Kanyakumari sunset"],
+        "description": "Day trip to the magical tip of India — Kanyakumari. Ferry to Vivekananda Rock Memorial and the 133-ft Thiruvalluvar Statue. Witness the spectacular sunset over the triple-ocean Triveni Sangam horizon.",
+        "stay": "3-Star Hotel, Trivandrum",
+        "meals": "Breakfast included"
+      },
+      {
+        "day": 8,
+        "title": "Departure — Trivandrum Airport",
+        "route": "Hotel → Trivandrum Airport (TRV)",
+        "distanceTime": "10 km / 20 minutes",
+        "highlights": ["Souvenir shopping", "Departure airport transfer"],
+        "description": "Final breakfast and private transfer to Trivandrum International Airport (TRV) for departure with a heart full of Kerala memories.",
+        "stay": "Departure Transfer",
+        "meals": "Breakfast included"
+      }
+    ],
+    "paxPricing": {
+      "pax2": 34999,
+      "pax4": 29999,
+      "pax6": 25999,
+      "pax12": 21999
+    }
+  },
+
+  {
+    "id": "coorg-mysore",
+    "name": "Coorg & Mysore Explorer — Coffee Hills, Royal Palace & Waterfalls",
+    "state": "karnataka",
+    "stateLabel": "Karnataka",
+    "duration": "3 Nights / 4 Days",
+    "nights": 3,
+    "days": 4,
+    "price": 15999,
+    "formattedPrice": "₹15,999",
+    "image": "/images/coorg-mysore.jpg",
+    "description": "The best of Karnataka in 4 days — breathtaking Coorg coffee & spice plantations, misty abbey waterfalls, and the magnificent illuminated Mysore Palace with its vibrant Devaraja Market. Coffee country serenity meets royal grandeur.",
+    "highlights": [
+      "Coorg Coffee & Spice Plantation",
+      "Abbey Falls & Iruppu Waterfall",
+      "Namdroling Buddhist Monastery — Golden Temple",
+      "Mysore Palace (illuminated Sundays)",
+      "Chamundi Hills Temple",
+      "Devaraja Flower & Silk Market"
+    ],
+    "accommodation": "3-Star Hotels & Coorg Plantation Stay",
+    "transport": "Private AC Vehicle",
+    "isCustomizable": true,
+    "category": "hillstation",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrival in Coorg — Coffee Plantations & Abbey Falls",
+        "route": "Bangalore / Mysore → Coorg (Madikeri)",
+        "distanceTime": "260 km from Bangalore / 120 km from Mysore",
+        "highlights": [
+          "Arrival at misty Coorg hill station",
+          "Madikeri Fort & Raja's Seat viewpoint",
+          "Coorg coffee plantation guided walk",
+          "Abbey Falls scenic trek"
+        ],
+        "description": "Arrive in the Scotland of India — Coorg. Drive through misty coffee hills to Madikeri. Visit Madikeri Fort, the stunning Raja's Seat sunset viewpoint, and take a guided coffee plantation walk where you learn about Coorg's legendary Robusta and Arabica coffee. Trek through jungle paths to the scenic Abbey Falls.",
+        "stay": "3-Star Plantation Resort, Coorg",
+        "meals": "Breakfast included"
+      },
+      {
+        "day": 2,
+        "title": "Coorg Deep Dive — Namdroling Monastery & Iruppu Falls",
+        "route": "Coorg Sightseeing Circuit",
+        "distanceTime": "80 km local circuit",
+        "highlights": [
+          "Namdroling Nyingmapa Buddhist Monastery — Golden Temple",
+          "Iruppu Waterfall — sacred Lakshmana Tirtha",
+          "Dubare Elephant Camp — elephant bathing experience",
+          "Coorg tribal culture & Kodava customs experience"
+        ],
+        "description": "Explore the spiritual and natural wonders of Coorg. Visit the breathtaking Namdroling Monastery (Golden Temple) with its 60-foot Buddha statues, take a sacred dip at Iruppu Falls on the Lakshmana Tirtha river, and interact with temple elephants at Dubare Elephant Camp on the Kaveri riverbank.",
+        "stay": "3-Star Plantation Resort, Coorg",
+        "meals": "Breakfast included"
+      },
+      {
+        "day": 3,
+        "title": "Coorg to Mysore — Royal Palace City",
+        "route": "Coorg → Mysore (120 km, ~3 hrs)",
+        "distanceTime": "120 km / 3 hours",
+        "highlights": [
+          "Mysore Palace (illuminated on Sundays — 97,000 light bulbs)",
+          "Chamundeshwari Temple at Chamundi Hills",
+          "Devaraja Market — flowers, silk & spices",
+          "Brindavan Gardens fountain light show"
+        ],
+        "description": "Drive to the royal city of Mysore. Explore the magnificent Indo-Saracenic Mysore Palace and its 97,000-bulb illumination display (Sundays). Ascend Chamundi Hills for the Chamundeshwari Devi Temple, visit the aromatic Devaraja Market, and close the evening at the musical fountain show at Brindavan Gardens.",
+        "stay": "3-Star Heritage Hotel, Mysore",
+        "meals": "Breakfast included"
+      },
+      {
+        "day": 4,
+        "title": "Mysore Silk & Departure",
+        "route": "Mysore → Bangalore Airport / Mysore Railway",
+        "distanceTime": "150 km to Bangalore / 6 km to Mysore station",
+        "highlights": [
+          "Mysore Silk Weaving Unit",
+          "Sandalwood products shopping",
+          "Departure transfer"
+        ],
+        "description": "Morning visit to the famous Mysore Silk Weaving Unit and Cauvery Emporium for premium Mysore silk and sandalwood products. Private transfer to Bangalore Airport or Mysore Railway Station for departure.",
+        "stay": "Departure Transfer",
+        "meals": "Breakfast included"
+      }
+    ],
+    "paxPricing": {
+      "pax2": 18999,
+      "pax4": 15999,
+      "pax6": 12999,
+      "pax12": 10999
+    }
+  },
+
+  {
+    "id": "ooty-kodaikanal",
+    "name": "Ooty & Kodaikanal Hill Station Twin Tour — Nilgiri Tea & Silent Valley",
+    "state": "tamilnadu",
+    "stateLabel": "Tamil Nadu",
+    "duration": "4 Nights / 5 Days",
+    "nights": 4,
+    "days": 5,
+    "price": 16999,
+    "formattedPrice": "₹16,999",
+    "image": "/images/ooty-kodaikanal.jpg",
+    "description": "Twin hill station escape through Tamil Nadu's most beloved highlands — the UNESCO Nilgiri Mountain Railway toy train through Ooty's fragrant tea gardens, and Kodaikanal's pristine star lake surrounded by pine forests. Romantic, refreshing, and unforgettable.",
+    "highlights": [
+      "Nilgiri Mountain Railway (UNESCO Toy Train)",
+      "Ooty Botanical Gardens",
+      "Doddabetta Peak — Nilgiris' highest point",
+      "Kodaikanal Lake Boating",
+      "Coaker's Walk & Pillar Rocks",
+      "Berijam Lake Deep Forest"
+    ],
+    "accommodation": "3-Star Hill Station Hotels",
+    "transport": "Private AC Vehicle",
+    "isCustomizable": true,
+    "category": "hillstation",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrival in Ooty — Queen of Hill Stations",
+        "route": "Coimbatore Airport / Mysore → Ooty (Udhagamandalam)",
+        "distanceTime": "85 km from Coimbatore / 120 km from Mysore",
+        "highlights": [
+          "Ooty Lake boating at sunset",
+          "Ooty Botanical Gardens walk",
+          "Tribal Toda village visit",
+          "Ooty homemade chocolate shopping"
+        ],
+        "description": "Arrive in the Queen of Hill Stations — Ooty. Visit the stunning 55-acre Botanical Gardens dating to 1847, enjoy boating on Ooty Lake, and explore a traditional Toda tribal village with its unique barrel-shaped dwellings. Evening shop for Ooty's famous handmade chocolates and eucalyptus oil.",
+        "stay": "3-Star Heritage Hotel, Ooty",
+        "meals": "Welcome Drink & Breakfast included"
+      },
+      {
+        "day": 2,
+        "title": "Ooty Highlights — UNESCO Toy Train, Doddabetta & Tea Estates",
+        "route": "Ooty → Coonoor → Doddabetta → Avalanche Lake",
+        "distanceTime": "60 km local circuit",
+        "highlights": [
+          "UNESCO Nilgiri Mountain Railway toy train (Mettupalayam–Ooty)",
+          "Doddabetta Peak (2,637 m) — Nilgiris' highest",
+          "Nilgiri Tea Plantation & Tea Museum",
+          "Lamb's Rock & Dolphin's Nose, Coonoor"
+        ],
+        "description": "Ride the iconic UNESCO-listed Nilgiri Mountain Railway toy train through misty tunnels and tea garden vistas. Drive to Doddabetta — the highest peak of the Nilgiris at 2,637 m. Walk through an active Nilgiri tea estate and visit the Tea Museum. Day-trip to Coonoor for Lamb's Rock and Dolphin's Nose views.",
+        "stay": "3-Star Heritage Hotel, Ooty",
+        "meals": "Breakfast included"
+      },
+      {
+        "day": 3,
+        "title": "Ooty to Kodaikanal — The Princess of Hill Stations",
+        "route": "Ooty → Kodaikanal (165 km, ~4 hrs)",
+        "distanceTime": "165 km / 4 hours",
+        "highlights": [
+          "Kodaikanal Lake pedal boating",
+          "Coaker's Walk panoramic promenade",
+          "Bryant Park rose garden",
+          "Silver Cascade Waterfall"
+        ],
+        "description": "Scenic drive through tea estates and ghat roads to Kodaikanal — the Princess of Hill Stations. Arrive and explore the stunning star-shaped Kodaikanal Lake by paddle boat, stroll the Coaker's Walk cliff promenade with valley vistas, and visit Bryant Park's rose garden and the Silver Cascade Waterfall.",
+        "stay": "3-Star Lake-View Hotel, Kodaikanal",
+        "meals": "Breakfast included"
+      },
+      {
+        "day": 4,
+        "title": "Kodaikanal Deep Exploration — Pillar Rocks & Berijam Lake",
+        "route": "Kodaikanal Sightseeing Circuit",
+        "distanceTime": "50 km local circuit",
+        "highlights": [
+          "Pillar Rocks (600 ft vertical granite columns)",
+          "Berijam Deep Forest Lake reserve (permit required)",
+          "Green Valley Views & Guna Cave",
+          "Kodaikanal Homemade Chocolates & Eucalyptus products"
+        ],
+        "description": "Drive to the dramatic Pillar Rocks — three vertical granite columns rising 600 feet. Get a forest permit for the pristine Berijam Lake deep inside Kodaikanal Forest Reserve — one of the most untouched ecosystems in South India. Visit Green Valley Views (Suicide Point) and the cave used in the Bollywood film Guna.",
+        "stay": "3-Star Lake-View Hotel, Kodaikanal",
+        "meals": "Breakfast included"
+      },
+      {
+        "day": 5,
+        "title": "Kodaikanal Farewell & Departure",
+        "route": "Kodaikanal → Madurai Airport / Dindigul Railway",
+        "distanceTime": "120 km to Madurai / 80 km to Dindigul",
+        "highlights": [
+          "Morning lake walk and mist views",
+          "Souvenir shopping — eucalyptus oil, homemade cheese",
+          "Departure transfer to Madurai / Coimbatore"
+        ],
+        "description": "Enjoy a final misty morning walk around Kodaikanal Lake. Shop for eucalyptus oil, homemade cheese and chocolates — Kodaikanal's famous exports. Your private chauffeur transfers you to Madurai Airport or Dindigul Railway Station.",
+        "stay": "Departure Transfer",
+        "meals": "Breakfast included"
+      }
+    ],
+    "paxPricing": {
+      "pax2": 19999,
+      "pax4": 16999,
+      "pax6": 13999,
+      "pax12": 11499
     }
   }
 ];

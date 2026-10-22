@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, ArrowRight, MapPin, Calendar, Users, ChevronDown } from "lucide-react";
+import PrimaryButton from "@/components/ui/PrimaryButton";
 
 interface HeroSectionProps {
   onOpenPlanModal: (destName?: string) => void;
@@ -43,13 +44,35 @@ const SLIDES = [
     alt: "Kashmir Dal Lake shikara framed through ornate wooden jharokha with snow mountains",
     location: "Srinagar · Dal Lake & Himalayas",
   },
+  {
+    id: "lakshadweep",
+    title: "LAKSHADWEEP",
+    titleClass: "text-3xl sm:text-5xl md:text-6xl lg:text-[5.4rem] xl:text-[6.4rem] tracking-[0.06em] sm:tracking-[0.09em] md:tracking-[0.12em]",
+    subtitle: "Discover Lakshadweep, Your Way",
+    cta: "Explore Island Retreats",
+    target: "Lakshadweep Coral Islands",
+    image: "/images/hero-lakshadweep.jpg",
+    alt: "Lakshadweep turquoise lagoon and catamaran framed under curved palm trunk archway at sunset",
+    location: "Agatti & Bangaram · Coral Paradise",
+  },
+  {
+    id: "goa",
+    title: "GOA",
+    titleClass: "text-6xl sm:text-8xl md:text-9xl lg:text-[11rem] xl:text-[12.4rem] tracking-[0.18em] sm:tracking-[0.24em] md:tracking-[0.28em]",
+    subtitle: "Discover Goa, Your Way",
+    cta: "Explore Coastal Getaways",
+    target: "Goa Luxury Beach & Heritage",
+    image: "/images/hero-goa.jpg",
+    alt: "Goa sunset beach and boat framed through historic Portuguese stone archway with bougainvillea",
+    location: "Palolem & Panaji · Coastal Sunshine",
+  },
 ];
 
-// Infinite loop slides array: [Clone of Kashmir, India, Kerala, Kashmir, Clone of India]
+// Infinite loop slides array: [Clone of last, ...SLIDES, Clone of first]
 const EXTENDED_SLIDES = [
-  SLIDES[SLIDES.length - 1], // Clone of Kashmir (idx 0)
-  ...SLIDES,                  // Real: India (1), Kerala (2), Kashmir (3)
-  SLIDES[0],                  // Clone of India (idx 4)
+  SLIDES[SLIDES.length - 1], // Clone of Goa (idx 0)
+  ...SLIDES,                  // Real: India (1), Kerala (2), Kashmir (3), Lakshadweep (4), Goa (5)
+  SLIDES[0],                  // Clone of India (idx 6)
 ];
 
 const SLIDE_DURATION = 4500; // 4.5 seconds per slide
@@ -83,6 +106,9 @@ export default function HeroSection({ onOpenPlanModal, onSearch }: HeroSectionPr
 
   // Core slide mover function
   const moveToSlide = useCallback((targetIndex: number) => {
+    // Clamp to valid range so it never translates to non-existent indices
+    const clampedIndex = Math.max(0, Math.min(targetIndex, EXTENDED_SLIDES.length - 1));
+
     // Clear any pending boundary reset timers
     if (boundaryResetTimerRef.current) {
       clearTimeout(boundaryResetTimerRef.current);
@@ -90,10 +116,10 @@ export default function HeroSection({ onOpenPlanModal, onSearch }: HeroSectionPr
     }
 
     setWithTransition(true);
-    setCurrentIndex(targetIndex);
+    setCurrentIndex(clampedIndex);
 
     // If targetIndex is a clone boundary, silently snap to real counterpart after transition
-    if (targetIndex === 0) {
+    if (clampedIndex === 0) {
       boundaryResetTimerRef.current = setTimeout(() => {
         setWithTransition(false);
         setCurrentIndex(SLIDES.length); // real Kashmir (index 3)
@@ -103,8 +129,8 @@ export default function HeroSection({ onOpenPlanModal, onSearch }: HeroSectionPr
             setWithTransition(true);
           });
         });
-      }, TRANSITION_DURATION);
-    } else if (targetIndex === EXTENDED_SLIDES.length - 1) {
+      }, TRANSITION_DURATION + 30);
+    } else if (clampedIndex === EXTENDED_SLIDES.length - 1) {
       boundaryResetTimerRef.current = setTimeout(() => {
         setWithTransition(false);
         setCurrentIndex(1); // real India (index 1)
@@ -114,24 +140,48 @@ export default function HeroSection({ onOpenPlanModal, onSearch }: HeroSectionPr
             setWithTransition(true);
           });
         });
-      }, TRANSITION_DURATION);
+      }, TRANSITION_DURATION + 30);
     }
   }, []);
 
   // Advance to next slide
   const nextSlide = useCallback(() => {
     const now = Date.now();
-    if (now - lastActionTimeRef.current < 400) return; // prevent rapid double clicks
+    if (now - lastActionTimeRef.current < 500) return; // prevent rapid double clicks
     lastActionTimeRef.current = now;
-    moveToSlide(currentIndexRef.current + 1);
+    const curr = currentIndexRef.current;
+    if (curr >= EXTENDED_SLIDES.length - 1) {
+      // If at clone India (4), jump to real India (1) first and glide to Kerala (2)
+      setWithTransition(false);
+      setCurrentIndex(1);
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          moveToSlide(2);
+        });
+      });
+      return;
+    }
+    moveToSlide(curr + 1);
   }, [moveToSlide]);
 
   // Go to previous slide
   const prevSlide = useCallback(() => {
     const now = Date.now();
-    if (now - lastActionTimeRef.current < 400) return;
+    if (now - lastActionTimeRef.current < 500) return;
     lastActionTimeRef.current = now;
-    moveToSlide(currentIndexRef.current - 1);
+    const curr = currentIndexRef.current;
+    if (curr <= 0) {
+      // If at clone Kashmir (0), jump to real Kashmir (3) first and glide to Kerala (2)
+      setWithTransition(false);
+      setCurrentIndex(SLIDES.length);
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          moveToSlide(SLIDES.length - 1);
+        });
+      });
+      return;
+    }
+    moveToSlide(curr - 1);
   }, [moveToSlide]);
 
   // Jump to specific slide via dot indicator
@@ -228,7 +278,7 @@ export default function HeroSection({ onOpenPlanModal, onSearch }: HeroSectionPr
       <section
         id="hero"
         aria-label="Flynova Curated India Hero Slides"
-        className="relative w-full h-screen min-h-[640px] flex flex-col justify-between overflow-hidden bg-[#05070a] select-none"
+        className="relative w-full h-screen min-h-[640px] flex flex-col justify-between overflow-hidden bg-dark-deep select-none"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
@@ -248,7 +298,10 @@ export default function HeroSection({ onOpenPlanModal, onSearch }: HeroSectionPr
               return (
                 <div
                   key={`${slide.id}-${idx}`}
-                  className="w-full h-full shrink-0 relative flex flex-col justify-between overflow-hidden"
+                  className="w-full h-full shrink-0 relative flex flex-col justify-between overflow-hidden bg-cover bg-center"
+                  style={{
+                    backgroundImage: `url(${slide.image})`,
+                  }}
                 >
                   {/* Background Image with Archway Framing */}
                   <div className="absolute inset-0 z-0">
@@ -256,8 +309,9 @@ export default function HeroSection({ onOpenPlanModal, onSearch }: HeroSectionPr
                       src={slide.image}
                       alt={slide.alt}
                       fill
-                      priority={idx === 1}
-                      quality={95}
+                      priority={true}
+                      unoptimized={true}
+                      sizes="100vw"
                       className={`object-cover object-center transition-transform duration-[7000ms] ease-out ${
                         isCurrent ? "scale-105" : "scale-100"
                       }`}
@@ -275,7 +329,7 @@ export default function HeroSection({ onOpenPlanModal, onSearch }: HeroSectionPr
                   <div className="relative z-10 w-full max-w-[94vw] sm:max-w-[88vw] lg:max-w-[80vw] mx-auto px-4 flex flex-col items-center justify-center my-auto overflow-hidden pointer-events-none">
                     <div className="w-full flex items-center justify-center overflow-hidden">
                       <h1
-                        className={`font-serif font-normal text-[#f7f5f0] leading-none text-center select-none whitespace-nowrap drop-shadow-[0_4px_30px_rgba(0,0,0,0.85)] ${slide.titleClass}`}
+                        className={`font-serif font-playfair font-normal text-[#f7f5f0] leading-none text-center select-none whitespace-nowrap drop-shadow-[0_4px_30px_rgba(0,0,0,0.85)] ${slide.titleClass}`}
                       >
                         {slide.title}
                       </h1>
@@ -297,7 +351,7 @@ export default function HeroSection({ onOpenPlanModal, onSearch }: HeroSectionPr
           <div className="text-center sm:text-left min-h-[36px] flex items-center">
             <p
               key={active.subtitle}
-              className="font-serif text-xl sm:text-2xl md:text-3xl lg:text-[2rem] text-[#f7f5f0]/95 font-normal tracking-wide animate-fadeInSlide drop-shadow-[0_2px_14px_rgba(0,0,0,0.8)]"
+              className="font-serif font-playfair text-xl sm:text-2xl md:text-3xl lg:text-[2rem] text-[#f7f5f0]/95 font-normal tracking-wide animate-fadeInSlide drop-shadow-[0_2px_14px_rgba(0,0,0,0.8)]"
             >
               {active.subtitle}
             </p>
@@ -346,7 +400,7 @@ export default function HeroSection({ onOpenPlanModal, onSearch }: HeroSectionPr
             <button
               type="button"
               onClick={() => onOpenPlanModal(active.target)}
-              className="border border-white/70 hover:border-[#dcb037] bg-black/30 hover:bg-[#dcb037] text-white hover:text-black font-serif font-normal text-xs sm:text-sm tracking-widest px-8 sm:px-10 py-3 sm:py-3.5 transition-all duration-300 cursor-pointer rounded-none backdrop-blur-xs shadow-xl group"
+              className="border border-white/70 hover:border-[#dcb037] bg-black/30 hover:bg-[#dcb037] text-white hover:text-black font-serif font-playfair font-normal text-xs sm:text-sm tracking-widest px-8 sm:px-10 py-3 sm:py-3.5 transition-all duration-300 cursor-pointer rounded-none backdrop-blur-xs shadow-xl group"
             >
               <span className="group-hover:tracking-[0.18em] transition-all duration-300">{active.cta}</span>
             </button>
@@ -357,15 +411,15 @@ export default function HeroSection({ onOpenPlanModal, onSearch }: HeroSectionPr
       </section>
 
       {/* 2. Floating / Integrated Trip Finder Search Bar (Right under Fullscreen Hero) */}
-      <section id="trip-finder" className="bg-[#07090b] relative z-30 py-6 sm:py-8 border-b border-white/10">
+      <section id="trip-finder" className="bg-dark-deep relative z-30 py-6 sm:py-8 border-b border-white/10">
         <div className="max-w-[1360px] mx-auto px-6">
           <form
             onSubmit={handleSearchSubmit}
-            className="bg-[#101418]/95 backdrop-blur-xl border border-white/10 rounded-2xl p-2 sm:p-2.5 shadow-[0_20px_60px_rgba(0,0,0,0.85)] flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-2 text-white"
+            className="bg-dark-elevated/95 backdrop-blur-xl border border-white/10 rounded-2xl p-2 sm:p-2.5 shadow-[0_20px_60px_rgba(0,0,0,0.85)] flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-2 text-white"
           >
             {/* Field 1: Destination */}
             <div className="flex-1 flex items-center gap-3.5 px-4 py-3 hover:bg-white/5 rounded-xl transition-colors relative cursor-pointer group">
-              <div className="w-7 h-7 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-[#dcb037] flex-shrink-0">
+              <div className="w-7 h-7 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gold-base flex-shrink-0">
                 <MapPin className="w-4 h-4" />
               </div>
               <div className="flex-1 flex flex-col min-w-0">
@@ -377,13 +431,13 @@ export default function HeroSection({ onOpenPlanModal, onSearch }: HeroSectionPr
                   onChange={(e) => setDestination(e.target.value)}
                   className="text-xs sm:text-sm text-white font-medium bg-transparent outline-none cursor-pointer appearance-none w-full pr-5 truncate"
                 >
-                  <option value="" className="bg-[#12161a] text-white">Where do you want to go?</option>
-                  <option value="Kerala & Backwaters" className="bg-[#12161a] text-white">Kerala (Alleppey, Munnar, Kovalam)</option>
-                  <option value="Kashmir Dream Getaway" className="bg-[#12161a] text-white">Kashmir & Dal Lake (Gulmarg, Pahalgam)</option>
-                  <option value="Goa Beach Holiday" className="bg-[#12161a] text-white">Goa (North Goa, South Goa)</option>
-                  <option value="Sacred South Temple Tour" className="bg-[#12161a] text-white">Sacred South Temple Tour</option>
-                  <option value="Royal Rajasthan" className="bg-[#12161a] text-white">Jaipur & Royal Rajasthan</option>
-                  <option value="Lakshadweep Islands" className="bg-[#12161a] text-white">Lakshadweep Coral Lagoons</option>
+                  <option value="" className="bg-dark-surface text-white">Where do you want to go?</option>
+                  <option value="Kerala & Backwaters" className="bg-dark-surface text-white">Kerala (Alleppey, Munnar, Kovalam)</option>
+                  <option value="Kashmir Dream Getaway" className="bg-dark-surface text-white">Kashmir & Dal Lake (Gulmarg, Pahalgam)</option>
+                  <option value="Goa Beach Holiday" className="bg-dark-surface text-white">Goa (North Goa, South Goa)</option>
+                  <option value="Sacred South Temple Tour" className="bg-dark-surface text-white">Sacred South Temple Tour</option>
+                  <option value="Royal Rajasthan" className="bg-dark-surface text-white">Jaipur & Royal Rajasthan</option>
+                  <option value="Lakshadweep Islands" className="bg-dark-surface text-white">Lakshadweep Coral Lagoons</option>
                 </select>
               </div>
               <ChevronDown className="w-3.5 h-3.5 text-white/40 group-hover:text-white transition-colors pointer-events-none" />
@@ -393,7 +447,7 @@ export default function HeroSection({ onOpenPlanModal, onSearch }: HeroSectionPr
 
             {/* Field 2: Travel dates */}
             <div className="flex-1 flex items-center gap-3.5 px-4 py-3 hover:bg-white/5 rounded-xl transition-colors relative cursor-pointer group">
-              <div className="w-7 h-7 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-[#dcb037] flex-shrink-0">
+              <div className="w-7 h-7 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gold-base flex-shrink-0">
                 <Calendar className="w-4 h-4" />
               </div>
               <div className="flex-1 flex flex-col min-w-0">
@@ -405,12 +459,12 @@ export default function HeroSection({ onOpenPlanModal, onSearch }: HeroSectionPr
                   onChange={(e) => setDates(e.target.value)}
                   className="text-xs sm:text-sm text-white font-medium bg-transparent outline-none cursor-pointer appearance-none w-full pr-5 truncate"
                 >
-                  <option value="" className="bg-[#12161a] text-white">Add dates</option>
-                  <option value="Immediate Departure" className="bg-[#12161a] text-white">This Month (Immediate Departure)</option>
-                  <option value="Next Month" className="bg-[#12161a] text-white">Next Month</option>
-                  <option value="Winter Holiday Season" className="bg-[#12161a] text-white">Nov – Feb (Winter Peak Season)</option>
-                  <option value="Summer Holidays" className="bg-[#12161a] text-white">Mar – May (Summer Holidays)</option>
-                  <option value="Monsoon & Ayurveda" className="bg-[#12161a] text-white">Jun – Aug (Monsoon Season)</option>
+                  <option value="" className="bg-dark-surface text-white">Add dates</option>
+                  <option value="Immediate Departure" className="bg-dark-surface text-white">This Month (Immediate Departure)</option>
+                  <option value="Next Month" className="bg-dark-surface text-white">Next Month</option>
+                  <option value="Winter Holiday Season" className="bg-dark-surface text-white">Nov – Feb (Winter Peak Season)</option>
+                  <option value="Summer Holidays" className="bg-dark-surface text-white">Mar – May (Summer Holidays)</option>
+                  <option value="Monsoon & Ayurveda" className="bg-dark-surface text-white">Jun – Aug (Monsoon Season)</option>
                 </select>
               </div>
               <ChevronDown className="w-3.5 h-3.5 text-white/40 group-hover:text-white transition-colors pointer-events-none" />
@@ -420,7 +474,7 @@ export default function HeroSection({ onOpenPlanModal, onSearch }: HeroSectionPr
 
             {/* Field 3: Travellers */}
             <div className="flex-1 flex items-center gap-3.5 px-4 py-3 hover:bg-white/5 rounded-xl transition-colors relative cursor-pointer group">
-              <div className="w-7 h-7 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-[#dcb037] flex-shrink-0">
+              <div className="w-7 h-7 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gold-base flex-shrink-0">
                 <Users className="w-4 h-4" />
               </div>
               <div className="flex-1 flex flex-col min-w-0">
@@ -432,24 +486,24 @@ export default function HeroSection({ onOpenPlanModal, onSearch }: HeroSectionPr
                   onChange={(e) => setTravellers(e.target.value)}
                   className="text-xs sm:text-sm text-white font-medium bg-transparent outline-none cursor-pointer appearance-none w-full pr-5 truncate"
                 >
-                  <option value="2 travellers" className="bg-[#12161a] text-white">2 travellers</option>
-                  <option value="1 traveller (Solo)" className="bg-[#12161a] text-white">1 traveller (Solo)</option>
-                  <option value="3-5 travellers (Family)" className="bg-[#12161a] text-white">3–5 travellers (Family)</option>
-                  <option value="6-15 travellers (Group)" className="bg-[#12161a] text-white">6–15 travellers (Group)</option>
-                  <option value="15+ travellers" className="bg-[#12161a] text-white">15+ travellers</option>
+                  <option value="2 travellers" className="bg-dark-surface text-white">2 travellers</option>
+                  <option value="1 traveller (Solo)" className="bg-dark-surface text-white">1 traveller (Solo)</option>
+                  <option value="3-5 travellers (Family)" className="bg-dark-surface text-white">3–5 travellers (Family)</option>
+                  <option value="6-15 travellers (Group)" className="bg-dark-surface text-white">6–15 travellers (Group)</option>
+                  <option value="15+ travellers" className="bg-dark-surface text-white">15+ travellers</option>
                 </select>
               </div>
               <ChevronDown className="w-3.5 h-3.5 text-white/40 group-hover:text-white transition-colors pointer-events-none" />
             </div>
 
             {/* Action Submit Button */}
-            <button
+            <PrimaryButton
               type="submit"
-              className="bg-[#dcb037] hover:bg-[#eec149] text-[#12161a] font-semibold text-xs sm:text-sm px-7 py-3.5 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 hover:shadow-[0_4px_20px_rgba(220,176,55,0.4)] cursor-pointer flex-shrink-0"
+              className="rounded-xl px-7 py-3.5 flex-shrink-0"
+              icon={<ArrowRight className="w-4 h-4" />}
             >
-              <span>Find a Trip</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
+              Find a Trip
+            </PrimaryButton>
           </form>
         </div>
       </section>

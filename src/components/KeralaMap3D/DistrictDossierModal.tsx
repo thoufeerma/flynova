@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { X, ArrowRight, MapPin, Calendar, Sparkles, Mountain, Users, Trees } from "lucide-react";
 import { DistrictData, DISTRICT_DOSSIERS } from "./keralaData";
+import PrimaryButton from "@/components/ui/PrimaryButton";
 
 interface DistrictDossierModalProps {
   district: DistrictData | null;
@@ -90,7 +91,7 @@ export default function DistrictDossierModal({
       {/* Smooth Spring-Deceleration Modal Container */}
       <div
         onClick={(e) => e.stopPropagation()}
-        className={`relative z-10 w-full max-w-4xl max-h-[90vh] overflow-hidden rounded-3xl bg-[#0b1013] border border-[#c59b27]/40 shadow-[0_30px_100px_rgba(0,0,0,0.95)] flex flex-col md:flex-row will-change-transform transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`relative z-10 w-full max-w-4xl max-h-[90vh] overflow-hidden rounded-3xl bg-dark-surface border border-gold-base/40 shadow-[0_30px_100px_rgba(0,0,0,0.95)] flex flex-col md:flex-row will-change-transform transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           visible
             ? "opacity-100 scale-100 translate-y-0"
             : "opacity-0 scale-90 translate-y-8 pointer-events-none"
@@ -109,18 +110,18 @@ export default function DistrictDossierModal({
           />
 
           {/* Luxury Gradient Vignettes */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0b1013] via-[#0b1013]/40 to-black/30 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#0b1013]/80 hidden md:block pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-dark-surface via-dark-surface/40 to-black/30 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-dark-surface/80 hidden md:block pointer-events-none" />
 
           {/* Overlaid Editorial Text */}
           <div className="relative z-10 animate-fadeInSlide">
-            <span className="inline-block text-[11px] font-bold uppercase tracking-[0.3em] text-[#c59b27] mb-1.5 drop-shadow-md">
+            <span className="inline-block text-[11px] font-bold uppercase tracking-[0.3em] text-gold-base mb-1.5 drop-shadow-md">
               DISCOVER
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white leading-tight mb-2 drop-shadow-lg">
+            <h2 className="font-serif font-playfair text-3xl sm:text-4xl font-normal text-white leading-tight mb-2 drop-shadow-lg">
               {district.name.split(" ")[0]}
             </h2>
-            <div className="w-12 h-[2px] bg-[#c59b27] mb-3 shadow-[0_0_8px_#c59b27]" />
+            <div className="w-12 h-[2px] bg-gold-base mb-3 shadow-[0_0_8px_rgba(197,155,39,0.5)]" />
             <p className="text-xs text-white/85 font-light italic leading-relaxed line-clamp-2">
               &ldquo;{dossier.tagline}&rdquo;
             </p>
@@ -131,7 +132,7 @@ export default function DistrictDossierModal({
             <span className="text-[10px] font-semibold text-white/90 uppercase tracking-widest flex items-center gap-1.5">
               <span
                 className="w-1.5 h-1.5 rounded-full"
-                style={{ backgroundColor: district.zoneColor || "#c59b27" }}
+                style={{ backgroundColor: district.zoneColor || "var(--color-gold-base)" }}
               />
               {district.zoneName}
             </span>
@@ -143,9 +144,9 @@ export default function DistrictDossierModal({
           <div>
             {/* Top Bar: Badge & Close Button */}
             <div className="flex items-center justify-between pb-3 mb-4 border-b border-white/10">
-              <div className="inline-flex items-center gap-2 bg-[#c59b27]/15 border border-[#c59b27]/30 px-3 py-1 rounded-full">
-                <Sparkles className="w-3 h-3 text-[#c59b27]" />
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#c59b27]">
+              <div className="inline-flex items-center gap-2 bg-gold-base/15 border border-gold-base/30 px-3 py-1 rounded-full">
+                <Sparkles className="w-3 h-3 text-gold-base" />
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gold-base font-sans">
                   DISTRICT DOSSIER
                 </span>
               </div>
@@ -163,17 +164,17 @@ export default function DistrictDossierModal({
             {/* District Title & Subtitle */}
             <div className="mb-4">
               <div className="flex items-center gap-1.5 text-xs text-white/50 mb-1">
-                <MapPin className="w-3.5 h-3.5 text-[#c59b27]" />
-                <span className="uppercase tracking-widest text-[11px] font-medium">KERALA STATE, INDIA</span>
+                <MapPin className="w-3.5 h-3.5 text-gold-base" />
+                <span className="uppercase tracking-widest text-[11px] font-medium font-sans">KERALA STATE, INDIA</span>
               </div>
               <h3
                 id="dossier-title"
-                className="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight"
+                className="font-serif font-playfair text-2xl sm:text-3xl font-normal text-white tracking-tight leading-tight"
               >
                 {district.name}
               </h3>
               {district.alias && (
-                <p className="text-xs font-medium text-[#c59b27] mt-1">
+                <p className="text-xs font-medium text-gold-base mt-1">
                   {district.alias}
                 </p>
               )}
@@ -182,36 +183,36 @@ export default function DistrictDossierModal({
             {/* 3 Stat Cards Grid */}
             <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-5">
               {/* Stat 1: Geography */}
-              <div className="bg-[#141a1f]/80 rounded-2xl p-3 border border-white/10 flex flex-col justify-center items-center text-center">
-                <div className="flex items-center gap-1 text-[9px] font-bold text-white/45 uppercase tracking-wider mb-1">
-                  <Mountain className="w-3 h-3 text-[#c59b27]" />
+              <div className="bg-dark-elevated rounded-2xl p-3 border border-white/10 flex flex-col justify-center items-center text-center">
+                <div className="flex items-center gap-1 text-[9px] font-bold text-white/45 uppercase tracking-wider mb-1 font-sans">
+                  <Mountain className="w-3 h-3 text-gold-base" />
                   <span>GEOGRAPHY</span>
                 </div>
-                <p className="font-serif text-sm sm:text-base font-bold text-white leading-none">
+                <p className="font-manrope text-sm sm:text-base font-bold text-white leading-none">
                   {dossier.geography}
                 </p>
                 <span className="text-[8px] text-white/40 tracking-wider uppercase mt-1">Total Area</span>
               </div>
 
               {/* Stat 2: Population */}
-              <div className="bg-[#141a1f]/80 rounded-2xl p-3 border border-white/10 flex flex-col justify-center items-center text-center">
-                <div className="flex items-center gap-1 text-[9px] font-bold text-white/45 uppercase tracking-wider mb-1">
-                  <Users className="w-3 h-3 text-[#c59b27]" />
+              <div className="bg-dark-elevated rounded-2xl p-3 border border-white/10 flex flex-col justify-center items-center text-center">
+                <div className="flex items-center gap-1 text-[9px] font-bold text-white/45 uppercase tracking-wider mb-1 font-sans">
+                  <Users className="w-3 h-3 text-gold-base" />
                   <span>POPULATION</span>
                 </div>
-                <p className="font-serif text-sm sm:text-base font-bold text-white leading-none">
+                <p className="font-manrope text-sm sm:text-base font-bold text-white leading-none">
                   {dossier.population}
                 </p>
                 <span className="text-[8px] text-white/40 tracking-wider uppercase mt-1">Census Metric</span>
               </div>
 
               {/* Stat 3: Hotspots */}
-              <div className="bg-[#141a1f]/80 rounded-2xl p-3 border border-white/10 flex flex-col justify-center items-center text-center">
-                <div className="flex items-center gap-1 text-[9px] font-bold text-white/45 uppercase tracking-wider mb-1">
-                  <Trees className="w-3 h-3 text-[#c59b27]" />
+              <div className="bg-dark-elevated rounded-2xl p-3 border border-white/10 flex flex-col justify-center items-center text-center">
+                <div className="flex items-center gap-1 text-[9px] font-bold text-white/45 uppercase tracking-wider mb-1 font-sans">
+                  <Trees className="w-3 h-3 text-gold-base" />
                   <span>HOTSPOTS</span>
                 </div>
-                <p className="font-serif text-sm sm:text-base font-bold text-white leading-none">
+                <p className="font-manrope text-sm sm:text-base font-bold text-white leading-none">
                   {dossier.hotspots}
                 </p>
                 <span className="text-[8px] text-white/40 tracking-wider uppercase mt-1">Curated Sites</span>
@@ -226,7 +227,7 @@ export default function DistrictDossierModal({
 
               {/* Best Season Badge */}
               <div className="flex items-center gap-2 text-xs text-white/60 pt-1">
-                <Calendar className="w-3.5 h-3.5 text-[#c59b27]" />
+                <Calendar className="w-3.5 h-3.5 text-gold-base" />
                 <span className="text-white/50">Optimal Visiting Season:</span>
                 <span className="font-semibold text-white/90">{district.bestSeason}</span>
               </div>
@@ -234,7 +235,7 @@ export default function DistrictDossierModal({
               {/* Key Attractions Chips */}
               {district.keySpots && district.keySpots.length > 0 && (
                 <div className="pt-2">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-white/45 block mb-1.5">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-white/45 block mb-1.5 font-sans">
                     KEY DISTRICT HIGHLIGHTS:
                   </span>
                   <div className="flex flex-wrap gap-1.5">
@@ -254,13 +255,13 @@ export default function DistrictDossierModal({
 
           {/* Action CTA Button */}
           <div className="pt-3 border-t border-white/10">
-            <button
+            <PrimaryButton
               onClick={handleActionClick}
-              className="w-full group bg-gradient-to-r from-[#c59b27] to-[#e5b94c] hover:from-[#dcb037] hover:to-[#ffd56b] text-black font-bold text-xs sm:text-sm py-3.5 px-6 rounded-2xl flex items-center justify-center gap-2.5 transition-all duration-300 shadow-[0_10px_25px_rgba(197,155,39,0.3)] hover:shadow-[0_15px_35px_rgba(197,155,39,0.5)] cursor-pointer active:scale-[0.98]"
+              className="w-full py-3.5"
+              icon={<ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />}
             >
-              <span>PLAN A TRIP TO {district.name.split(" ")[0].toUpperCase()}</span>
-              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </button>
+              PLAN A TRIP TO {district.name.split(" ")[0].toUpperCase()}
+            </PrimaryButton>
           </div>
         </div>
       </div>
