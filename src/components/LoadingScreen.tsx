@@ -173,7 +173,7 @@ export default function LoadingScreen({ minDuration = 1400 }: LoadingScreenProps
       {/* Bottom Footer Note */}
       <div className="absolute bottom-6 left-0 right-0 text-center pointer-events-none">
         <p className="text-[10px] tracking-[0.25em] text-white/25 uppercase font-sans">
-          Flynova Reisen LLP · Germany & India
+          Flynova Reisen LLP · India
         </p>
       </div>
     </div>

@@ -81,7 +81,7 @@ export default function KeralaMapSection({ onOpenPlanModal }: KeralaMapSectionPr
   return (
     <section
       id="kerala-3d"
-      className="relative w-full min-h-[700px] lg:h-[calc(100vh-64px)] lg:min-h-[700px] lg:max-h-[860px] bg-[#070b0e] text-white overflow-hidden selection:bg-gold-base selection:text-black flex items-center select-none scroll-mt-20 pt-16 sm:pt-20 lg:pt-16 pb-4 sm:pb-6"
+      className="relative w-full bg-[#070b0e] text-white overflow-hidden selection:bg-gold-base selection:text-black flex flex-col lg:flex-row lg:items-center select-none scroll-mt-20 pt-20 sm:pt-24 lg:pt-16 pb-6 lg:pb-6 lg:h-[calc(100vh-64px)] lg:min-h-[700px] lg:max-h-[860px]"
     >
       {/* Top Hairline Gold Accent Divider */}
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#c59b27]/30 to-transparent z-30 pointer-events-none" />
@@ -105,8 +105,59 @@ export default function KeralaMapSection({ onOpenPlanModal }: KeralaMapSectionPr
         <div className="absolute inset-0 bg-gradient-to-b from-[#070b0e]/85 via-transparent to-[#070b0e]/70" />
       </div>
 
-      {/* 2. Full-Section Three.js 3D Interactive Canvas Stage */}
-      <div className="absolute inset-0 w-full h-full z-10">
+      {/* 2. Mobile Heading Banner: Sits cleanly at the top ABOVE the 3D map canvas */}
+      <div className="lg:hidden relative z-20 w-full max-w-[1520px] mx-auto px-6 sm:px-8 pb-3 pointer-events-auto flex flex-col items-start">
+        {/* Eyebrow: — EXPLORE KERALA */}
+        <div className="flex items-center gap-2 mb-2">
+          <span className="w-6 h-[1.5px] bg-[#dcb037]" />
+          <span className="text-[11px] font-sans font-bold tracking-[0.25em] text-[#dcb037] uppercase">
+            EXPLORE KERALA
+          </span>
+        </div>
+
+        {/* Display Headline in Playfair Display 400 */}
+        <h2 className="font-serif font-playfair font-normal text-3xl sm:text-4xl text-white leading-[1.08] tracking-tight">
+          God&apos;s Own<br />Country.
+        </h2>
+
+        {/* Subtitle Description */}
+        <p className="text-xs sm:text-sm text-white/70 font-light leading-relaxed max-w-[480px] mt-2.5">
+          From the emerald backwaters to the misty Western Ghats, explore Kerala&apos;s 14 diverse districts and timeless experiences.
+        </p>
+
+        {/* Mobile Zoom Controls Pill */}
+        <div className="flex items-center gap-2 bg-black/60 backdrop-blur-xl border border-white/15 rounded-xl p-1.5 w-fit mt-3.5 shadow-lg">
+          <button
+            type="button"
+            onClick={() => setZoomAction((p) => p + 1)}
+            className="w-7 h-7 rounded-lg flex items-center justify-center text-white/80 hover:text-white"
+            aria-label="Zoom In"
+          >
+            <Plus className="w-4 h-4" />
+          </button>
+          <div className="w-[1px] h-4 bg-white/15" />
+          <button
+            type="button"
+            onClick={() => setZoomOutAction((p) => p + 1)}
+            className="w-7 h-7 rounded-lg flex items-center justify-center text-white/80 hover:text-white"
+            aria-label="Zoom Out"
+          >
+            <Minus className="w-4 h-4" />
+          </button>
+          <div className="w-[1px] h-4 bg-white/15" />
+          <button
+            type="button"
+            onClick={handleReset}
+            className="w-7 h-7 rounded-lg flex items-center justify-center text-white/80 hover:text-[#dcb037]"
+            aria-label="Reset View"
+          >
+            <RotateCcw className="w-3.5 h-3.5" />
+          </button>
+        </div>
+      </div>
+
+      {/* 3. Three.js 3D Interactive Canvas Stage: Dedicated block below heading on mobile, full-screen background on desktop */}
+      <div className="relative w-full h-[520px] sm:h-[600px] lg:absolute lg:inset-0 lg:h-full z-10">
         <Kerala3DCanvas
           selectedDistrictId={selectedId}
           hoveredDistrictId={hoveredId}
@@ -119,11 +170,11 @@ export default function KeralaMapSection({ onOpenPlanModal }: KeralaMapSectionPr
         />
       </div>
 
-      {/* 3. Floating Overlay UI (pointer-events-none allows seamless mouse raycasting across map) */}
-      <div className="relative z-20 w-full h-full max-w-[1520px] mx-auto px-6 sm:px-8 lg:px-12 pointer-events-none flex flex-col justify-between py-2 sm:py-3">
+      {/* 4. Desktop Floating Overlay UI (hidden on mobile since mobile has its dedicated top heading above the canvas) */}
+      <div className="hidden lg:flex relative z-20 w-full h-full max-w-[1520px] mx-auto px-6 sm:px-8 lg:px-12 pointer-events-none flex-col justify-between py-2 sm:py-3">
         
         {/* Top Row: Left Header & Right State Profile Card */}
-        <div className="flex flex-col lg:flex-row items-start justify-between gap-6 w-full">
+        <div className="flex flex-row items-start justify-between gap-6 w-full">
           
           {/* Left Column Text & Zoom Controls */}
           <div className="max-w-[420px] relative pointer-events-auto mt-2 sm:mt-4">
@@ -146,7 +197,7 @@ export default function KeralaMapSection({ onOpenPlanModal }: KeralaMapSectionPr
             </p>
 
             {/* Floating Vertical Pill Navigation Controls (Desktop alongside headline, exactly matching mockup) */}
-            <div className="hidden sm:flex absolute top-1 left-[340px] lg:left-[355px] xl:left-[375px] z-30 w-10 py-2.5 bg-black/60 backdrop-blur-xl border border-white/15 rounded-2xl flex-col items-center gap-2 shadow-2xl">
+            <div className="flex absolute top-1 left-[340px] lg:left-[355px] xl:left-[375px] z-30 w-10 py-2.5 bg-black/60 backdrop-blur-xl border border-white/15 rounded-2xl flex-col items-center gap-2 shadow-2xl">
               <button
                 type="button"
                 onClick={() => setZoomAction((p) => p + 1)}
@@ -177,40 +228,10 @@ export default function KeralaMapSection({ onOpenPlanModal }: KeralaMapSectionPr
                 <RotateCcw className="w-3.5 h-3.5" />
               </button>
             </div>
-
-            {/* Mobile fallback vertical pill below text */}
-            <div className="sm:hidden flex items-center gap-2 bg-black/60 backdrop-blur-xl border border-white/15 rounded-xl p-1.5 w-fit mt-4">
-              <button
-                type="button"
-                onClick={() => setZoomAction((p) => p + 1)}
-                className="w-7 h-7 rounded-lg flex items-center justify-center text-white/80"
-                aria-label="Zoom In"
-              >
-                <Plus className="w-4 h-4" />
-              </button>
-              <div className="w-[1px] h-4 bg-white/15" />
-              <button
-                type="button"
-                onClick={() => setZoomOutAction((p) => p + 1)}
-                className="w-7 h-7 rounded-lg flex items-center justify-center text-white/80"
-                aria-label="Zoom Out"
-              >
-                <Minus className="w-4 h-4" />
-              </button>
-              <div className="w-[1px] h-4 bg-white/15" />
-              <button
-                type="button"
-                onClick={handleReset}
-                className="w-7 h-7 rounded-lg flex items-center justify-center text-white/80"
-                aria-label="Reset View"
-              >
-                <RotateCcw className="w-3.5 h-3.5" />
-              </button>
-            </div>
           </div>
 
-          {/* Right Column: STATE PROFILE Luxury Card (Matches Reference Mockup 1:1) - Hidden on mobile screens so it does not overlap 3D map */}
-          <aside className="hidden lg:block w-full sm:w-[390px] lg:w-[410px] xl:w-[430px] flex-shrink-0 pointer-events-auto">
+          {/* Right Column: STATE PROFILE Luxury Card (Matches Reference Mockup 1:1) */}
+          <aside className="w-full sm:w-[390px] lg:w-[410px] xl:w-[430px] flex-shrink-0 pointer-events-auto">
             <div className="bg-gradient-to-b from-[#0e141d]/95 to-[#080c12]/95 backdrop-blur-2xl rounded-3xl p-5 sm:p-6 shadow-[0_30px_80px_rgba(0,0,0,0.9)] border border-white/15 ring-1 ring-white/5 text-white flex flex-col justify-between">
               <div>
                 {/* Top Header Row with Title & India Map Silhouette */}
