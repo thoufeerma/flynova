@@ -210,13 +210,6 @@ export default function DestinationsSection({ onSelectDestination }: Destination
         </div>
       </div>
 
-      {/* Bottom Hint */}
-      <div className="text-center mt-6 text-xs text-white/40 font-light flex items-center justify-center gap-2">
-        <span className="w-8 h-px bg-white/15" />
-        <span>Click any card to explore & customize itinerary</span>
-        <span className="w-8 h-px bg-white/15" />
-      </div>
-
     </section>
   );
 }
