@@ -209,8 +209,8 @@ export default function KeralaMapSection({ onOpenPlanModal }: KeralaMapSectionPr
             </div>
           </div>
 
-          {/* Right Column: STATE PROFILE Luxury Card (Matches Reference Mockup 1:1) */}
-          <aside className="w-full sm:w-[390px] lg:w-[410px] xl:w-[430px] flex-shrink-0 pointer-events-auto">
+          {/* Right Column: STATE PROFILE Luxury Card (Matches Reference Mockup 1:1) - Hidden on mobile screens so it does not overlap 3D map */}
+          <aside className="hidden lg:block w-full sm:w-[390px] lg:w-[410px] xl:w-[430px] flex-shrink-0 pointer-events-auto">
             <div className="bg-gradient-to-b from-[#0e141d]/95 to-[#080c12]/95 backdrop-blur-2xl rounded-3xl p-5 sm:p-6 shadow-[0_30px_80px_rgba(0,0,0,0.9)] border border-white/15 ring-1 ring-white/5 text-white flex flex-col justify-between">
               <div>
                 {/* Top Header Row with Title & India Map Silhouette */}

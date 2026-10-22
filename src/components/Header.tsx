@@ -23,6 +23,17 @@ export default function Header({ onOpenPlanModal, onSearchClick }: HeaderProps) 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
+
   interface NavLink {
     label: string;
     href: string;
@@ -42,8 +53,8 @@ export default function Header({ onOpenPlanModal, onSearchClick }: HeaderProps) 
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-dark-deep/90 backdrop-blur-md border-b border-white/10 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.7)]"
-          : "bg-gradient-to-b from-black/80 via-black/40 to-transparent py-5"
+          ? "bg-[#05070a]/95 backdrop-blur-md border-b border-white/10 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.7)]"
+          : "bg-[#05070a] lg:bg-gradient-to-b lg:from-black/80 lg:via-black/40 lg:to-transparent border-b border-white/10 lg:border-transparent py-3.5 lg:py-5"
       }`}
     >
       <div className="max-w-[1360px] mx-auto px-6 flex items-center justify-between">
@@ -93,7 +104,7 @@ export default function Header({ onOpenPlanModal, onSearchClick }: HeaderProps) 
           <button
             type="button"
             onClick={() => setMobileMenuOpen(true)}
-            className="lg:hidden p-2 text-white hover:text-gold-base transition-colors cursor-pointer"
+            className="lg:hidden p-2 text-white hover:text-[#dcb037] transition-colors cursor-pointer"
             aria-label="Open navigation menu"
           >
             <Menu className="w-6 h-6" />
@@ -102,20 +113,17 @@ export default function Header({ onOpenPlanModal, onSearchClick }: HeaderProps) 
 
       </div>
 
-      {/* Mobile Menu Drawer */}
+      {/* Mobile Menu Full-Screen Overlay (100% Opaque Solid Dark, Zero Background Bleed) */}
       <div
-        className={`fixed inset-0 z-50 lg:hidden transition-all duration-300 ${
-          mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        className={`fixed inset-0 z-[100] lg:hidden transition-all duration-300 ${
+          mobileMenuOpen ? "opacity-100 pointer-events-auto visible" : "opacity-0 pointer-events-none invisible"
         }`}
       >
-        <div
-          className="absolute inset-0 bg-black/80 backdrop-blur-sm"
-          onClick={() => setMobileMenuOpen(false)}
-        />
-        <div className="absolute right-0 top-0 bottom-0 w-full max-w-xs bg-dark-surface border-l border-white/10 p-6 flex flex-col justify-between">
+        <div className="absolute inset-0 bg-[#05070a] w-full h-full p-6 flex flex-col justify-between overflow-y-auto">
           <div>
-            <div className="flex items-center justify-between mb-8 pb-4 border-b border-white/10">
-              <div className="relative h-9 w-36">
+            {/* Top Bar with Brand Logo and Close Button */}
+            <div className="flex items-center justify-between pb-5 border-b border-white/10">
+              <div className="relative h-10 w-36">
                 <Image
                   src="/images/logo-clean.png"
                   alt="Flynova Reisen LLP"
@@ -126,23 +134,25 @@ export default function Header({ onOpenPlanModal, onSearchClick }: HeaderProps) 
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(false)}
-                className="p-1.5 text-white/70 hover:text-white"
+                className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 flex items-center justify-center text-white transition-colors cursor-pointer"
+                aria-label="Close navigation menu"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            <nav className="flex flex-col space-y-4">
+            {/* Navigation Links */}
+            <nav className="flex flex-col py-6 space-y-3">
               {navLinks.map((link) => (
                 <Link
                   key={link.label}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="font-serif font-playfair text-lg font-normal text-white/90 hover:text-[#f3cb6b] transition-colors py-1 flex items-center justify-between"
+                  className="font-serif font-playfair text-xl font-normal text-white/90 hover:text-[#f3cb6b] transition-colors py-3 border-b border-white/5 flex items-center justify-between"
                 >
                   <span>{link.label}</span>
                   {link.badge && (
-                    <span className="bg-gold-base text-black text-[10px] font-sans font-bold px-2 py-0.5 rounded-full uppercase">
+                    <span className="bg-[#c59b27] text-black text-[10px] font-sans font-bold px-2 py-0.5 rounded-full uppercase">
                       {link.badge}
                     </span>
                   )}
@@ -151,6 +161,7 @@ export default function Header({ onOpenPlanModal, onSearchClick }: HeaderProps) 
             </nav>
           </div>
 
+          {/* Bottom Actions */}
           <div className="pt-6 border-t border-white/10 space-y-4">
             <button
               type="button"
@@ -158,7 +169,7 @@ export default function Header({ onOpenPlanModal, onSearchClick }: HeaderProps) 
                 setMobileMenuOpen(false);
                 onOpenPlanModal();
               }}
-              className="w-full bg-[#c59b27] hover:bg-[#dcb037] text-black font-serif font-playfair font-semibold text-xs tracking-[0.12em] uppercase py-3 rounded-full flex items-center justify-center gap-2 transition-all shadow-md cursor-pointer"
+              className="w-full bg-[#c59b27] hover:bg-[#dcb037] text-black font-serif font-playfair font-semibold text-xs tracking-[0.12em] uppercase py-3.5 rounded-full flex items-center justify-center gap-2 transition-all shadow-md cursor-pointer active:scale-95"
             >
               <span>Plan Your Trip</span>
               <ArrowRight className="w-4 h-4" />

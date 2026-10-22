@@ -91,14 +91,24 @@ export default function DistrictDossierModal({
       {/* Smooth Spring-Deceleration Modal Container */}
       <div
         onClick={(e) => e.stopPropagation()}
-        className={`relative z-10 w-full max-w-4xl max-h-[90vh] overflow-hidden rounded-3xl bg-dark-surface border border-gold-base/40 shadow-[0_30px_100px_rgba(0,0,0,0.95)] flex flex-col md:flex-row will-change-transform transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`relative z-10 w-full max-w-4xl max-h-[90vh] overflow-hidden rounded-3xl bg-[#0b1013] border border-gold-base/40 shadow-[0_30px_100px_rgba(0,0,0,0.95)] flex flex-col md:flex-row will-change-transform transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           visible
             ? "opacity-100 scale-100 translate-y-0"
             : "opacity-0 scale-90 translate-y-8 pointer-events-none"
         }`}
       >
+        {/* Prominent Floating Close Button (Always visible on mobile & desktop at top right) */}
+        <button
+          type="button"
+          onClick={onClose}
+          className="absolute top-3.5 right-3.5 z-40 w-10 h-10 rounded-full bg-black/85 hover:bg-black text-white hover:text-[#dcb037] border border-white/25 flex items-center justify-center shadow-[0_4px_20px_rgba(0,0,0,0.85)] backdrop-blur-md transition-all active:scale-95 cursor-pointer"
+          aria-label="Close dossier modal"
+        >
+          <X className="w-5 h-5" />
+        </button>
+
         {/* Left Half: Scenic Photography Hero Column */}
-        <div className="relative w-full md:w-[45%] h-64 md:h-auto min-h-[260px] md:min-h-[480px] overflow-hidden flex flex-col justify-end p-6 sm:p-8 select-none">
+        <div className="relative w-full md:w-[45%] h-56 sm:h-64 md:h-auto min-h-[220px] md:min-h-[480px] overflow-hidden flex flex-col justify-end p-6 sm:p-8 select-none">
           {/* Background Scenic Image */}
           <Image
             src={dossier.image}
@@ -110,8 +120,8 @@ export default function DistrictDossierModal({
           />
 
           {/* Luxury Gradient Vignettes */}
-          <div className="absolute inset-0 bg-gradient-to-t from-dark-surface via-dark-surface/40 to-black/30 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-dark-surface/80 hidden md:block pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0b1013] via-[#0b1013]/40 to-black/30 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#0b1013]/80 hidden md:block pointer-events-none" />
 
           {/* Overlaid Editorial Text */}
           <div className="relative z-10 animate-fadeInSlide">
@@ -128,7 +138,7 @@ export default function DistrictDossierModal({
           </div>
 
           {/* Top Zone Tag */}
-          <div className="absolute top-5 left-5 z-10 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/15">
+          <div className="absolute top-4 left-4 z-10 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full border border-white/15">
             <span className="text-[10px] font-semibold text-white/90 uppercase tracking-widest flex items-center gap-1.5">
               <span
                 className="w-1.5 h-1.5 rounded-full"
@@ -253,8 +263,8 @@ export default function DistrictDossierModal({
             </div>
           </div>
 
-          {/* Action CTA Button */}
-          <div className="pt-3 border-t border-white/10">
+          {/* Action CTA Button & Mobile Close Button */}
+          <div className="pt-3 border-t border-white/10 space-y-2">
             <PrimaryButton
               onClick={handleActionClick}
               className="w-full py-3.5"
@@ -262,6 +272,13 @@ export default function DistrictDossierModal({
             >
               PLAN A TRIP TO {district.name.split(" ")[0].toUpperCase()}
             </PrimaryButton>
+            <button
+              type="button"
+              onClick={onClose}
+              className="w-full py-2.5 text-xs text-white/60 hover:text-white transition-colors text-center font-medium md:hidden cursor-pointer"
+            >
+              Close Window
+            </button>
           </div>
         </div>
       </div>
