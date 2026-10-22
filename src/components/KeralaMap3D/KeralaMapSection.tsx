@@ -3,7 +3,7 @@
 import React, { useState, useRef, useCallback, useEffect } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import { Plus, Minus, RotateCcw, ArrowRight } from "lucide-react";
+import { Plus, Minus, RotateCcw, ArrowRight, ChevronDown } from "lucide-react";
 import { KERALA_DISTRICTS } from "./keralaData";
 import DistrictDossierModal from "./DistrictDossierModal";
 
@@ -68,6 +68,15 @@ export default function KeralaMapSection({ onOpenPlanModal }: KeralaMapSectionPr
     setIsDossierOpen(false);
     setHoveredId(null);
     setResetAction((prev) => prev + 1);
+  };
+
+  const handleScrollToNext = () => {
+    const nextSection = document.getElementById("packages");
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.scrollBy({ top: window.innerHeight * 0.85, behavior: "smooth" });
+    }
   };
 
   useEffect(() => {
@@ -157,7 +166,7 @@ export default function KeralaMapSection({ onOpenPlanModal }: KeralaMapSectionPr
       </div>
 
       {/* 3. Three.js 3D Interactive Canvas Stage: Dedicated block below heading on mobile, full-screen background on desktop */}
-      <div className="relative w-full h-[520px] sm:h-[600px] lg:absolute lg:inset-0 lg:h-full z-10">
+      <div className="relative w-full h-[480px] sm:h-[580px] lg:absolute lg:inset-0 lg:h-full z-10">
         <Kerala3DCanvas
           selectedDistrictId={selectedId}
           hoveredDistrictId={hoveredId}
@@ -168,6 +177,18 @@ export default function KeralaMapSection({ onOpenPlanModal }: KeralaMapSectionPr
           zoomOutAction={zoomOutAction}
           resetAction={resetAction}
         />
+      </div>
+
+      {/* Clean Clickable Down Arrow button under the Kerala 3D map on mobile to scroll past smoothly */}
+      <div className="relative z-20 flex justify-center w-full pt-1 pb-3 lg:hidden pointer-events-auto">
+        <button
+          type="button"
+          onClick={handleScrollToNext}
+          className="w-11 h-11 rounded-full bg-black/75 hover:bg-black text-[#dcb037] border border-[#dcb037]/35 hover:border-[#dcb037]/75 shadow-[0_4px_20px_rgba(0,0,0,0.85)] backdrop-blur-md flex items-center justify-center transition-all duration-300 active:scale-90 animate-bounce cursor-pointer"
+          aria-label="Scroll past map to next section"
+        >
+          <ChevronDown className="w-5 h-5 text-[#dcb037]" />
+        </button>
       </div>
 
       {/* 4. Desktop Floating Overlay UI (hidden on mobile since mobile has its dedicated top heading above the canvas) */}
